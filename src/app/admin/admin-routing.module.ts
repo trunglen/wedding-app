@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AccountComponent } from './account/account.component';
-import { ManagerComponent } from './mamage/manager/manager.component';
+import { SupervisorComponent } from './supervisor/supervisor.component';
+import { ManagerComponent } from './manager/manager.component';
 import { UserService } from '../xmodel/user.service';
 
 const routes: Routes = [
-  { path: 'supervisor', component: AccountComponent },
+  { path: 'supervisor', component: SupervisorComponent },
   {
     path: 'manager', component: ManagerComponent, resolve: {
       userService: UserService
@@ -17,4 +17,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class RestaurantRoutingModule { }
+export class AdminRoutingModule { }

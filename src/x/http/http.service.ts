@@ -12,18 +12,20 @@ import 'rxjs/add/operator/map';
 
 import { ToastNotificationService } from './toast-notification.service';
 import { SpinnerService } from '../../app/core/spinner.service';
+import { SnotifyService } from 'ng-snotify';
+import { SessionFactory } from '../storage.utils';
 
 @Injectable()
 export class HttpService {
     constructor(
         private http: HttpClient,
     ) { }
-    
+
     Get<T>(url: string, params?: any) {
         // this.spinnerService.show();
         return this.http.get<T>(url, { params: params }).map(res => {
             return res['data'];
-        }).finally(() => { 
+        }).finally(() => {
             // this.spinnerService.hide() 
         });
     }
@@ -32,7 +34,7 @@ export class HttpService {
         // this.spinnerService.show(); 
         return this.http.post(url, body).map(res => {
             return res['data'];
-        }).finally(() => { 
+        }).finally(() => {
             // this.spinnerService.hide() 
         });
     }
@@ -41,14 +43,12 @@ export class HttpService {
 @Injectable()
 export class AuthHttpService implements HttpInterceptor {
 
-    constructor(
-        private authService: AuthService
-    ) { }
+    constructor() { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         req = req.clone({
             setHeaders: {
-                Authorization: `Bearer ${this.authService.getToken()}`
+                Authorization: `Bearer ${SessionFactory.getItem('access_token').token}`
             },
         });
         return next.handle(req);
@@ -59,15 +59,17 @@ export class AuthHttpService implements HttpInterceptor {
 @Injectable()
 export class HttpErrorService implements HttpInterceptor {
     constructor(
-        private toastService: ToastNotificationService
+        private toastService: ToastNotificationService,
+        private notifyService: SnotifyService
     ) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(req).catch((err: HttpErrorResponse) => {
             if (err.error instanceof Error) {
-                console.error('An error accured', err.error.message);
+                console.error('An error accured', err.error.message)
             } else {
-                this.toastService.error(err.error['error']);
+                this.toastService.error(err.error['error'])
+                this.notifyService.error(err.error['error'])
             }
             return Observable.throw(err);
         });

@@ -9,7 +9,7 @@
             <div class="col-sm-12">
               <div class="form-group">
                 <label for="name">Tên người quản lí</label>
-                <input type="text" class="form-control" id="name" placeholder="Nhập tên người quản lí">
+                <input type="text" class="form-control" id="name" placeholder="Nhập tên người quản lí" ngModel name="name">
               </div>
             </div>
           </div>
@@ -18,7 +18,7 @@
               <div class="col-sm-12">
                 <div class="form-group">
                   <label for="name">Số điện thoại người quản lí</label>
-                  <input type="text" class="form-control" id="name" placeholder="Nhập số điện thoại">
+                  <input type="text" class="form-control" id="name" placeholder="Nhập số điện thoại" ngModel name="phone">
                 </div>
               </div>
             </div>
@@ -27,7 +27,7 @@
               <div class="col-sm-12">
                 <div class="form-group">
                   <label for="ccnumber">Mật khẩu đăng nhập</label>
-                  <input type="password" class="form-control" id="ccnumber" placeholder="Nhập mật khẩu đăng nhập">
+                  <input type="password" class="form-control" id="ccnumber" placeholder="Nhập mật khẩu đăng nhập" ngModel name="password">
                 </div>
               </div>
             </div>
@@ -62,7 +62,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr *ngFor="let u of userService.user$|async">
                 <td>Samppa Nori</td>
                 <td>2012/01/01</td>
                 <td>Member</td>

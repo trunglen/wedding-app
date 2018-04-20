@@ -3,18 +3,25 @@
     <ul class="nav">
       <li class="nav-item">
         <a class="nav-link" href="index.html">
-          <i class="nav-icon icon-speedometer"></i> Dashboard
-          <span class="badge badge-primary">NEW</span>
+          <i class="nav-icon icon-speedometer"></i> Trang chủ
         </a>
       </li>
-      <li class="nav-title">Theme</li>
+      <li class="nav-title">Nhà hàng</li>
       <li class="nav-item">
-        <a class="nav-link" href="colors.html">
-          <i class="nav-icon icon-drop"></i> Colors</a>
+        <a class="nav-link" [routerLink]="['/admin/supervisor']">
+          <i class="nav-icon icon-drop"></i> Nhà hàng</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="typography.html">
-          <i class="nav-icon icon-pencil"></i> Typography</a>
+        <a class="nav-link" [routerLink]="['/admin/manager']">
+          <i class="nav-icon icon-pencil"></i> Manager</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/admin/wedding']">
+          <i class="nav-icon icon-pencil"></i> Đám cưới</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/admin/student']">
+          <i class="nav-icon icon-pencil"></i>Sinh viên</a>
       </li>
       <li class="nav-title">Components</li>
       <li class="nav-item nav-dropdown">
@@ -183,7 +190,7 @@
           </li>
         </ul>
       </li>
-      <li class="nav-item mt-auto">
+      <!-- <li class="nav-item mt-auto">
         <a class="nav-link nav-link-success" href="https://coreui.io" target="_top">
           <i class="nav-icon icon-cloud-download"></i> Download CoreUI</a>
       </li>
@@ -192,7 +199,7 @@
           <i class="nav-icon icon-layers"></i> Try CoreUI
           <strong>PRO</strong>
         </a>
-      </li>
+      </li> -->
     </ul>
   </nav>
   <button class="sidebar-minimizer brand-minimizer" type="button"></button>
