@@ -2,73 +2,6 @@
   <div class="col-lg-12">
     <div class="card">
       <div class="card-header">
-        <strong>Tạo account cho nhà hàng</strong>
-      </div>
-      <form #f="ngForm">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <label for="name">Tên nhà hàng</label>
-                <input type="text" class="form-control" id="name" placeholder="Nhập tên cửa hàng" ngModel name="restaurant_name">
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <label for="name">Địa chỉ cửa hàng</label>
-                <input type="text" class="form-control" id="name" placeholder="Nhập địa chỉ cửa hàng" ngModel name="address">
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <label for="name">Tên chủ nhà hàng</label>
-                <input type="text" class="form-control" id="name" placeholder="Nhập tên cửa hàng" ngModel name="name">
-              </div>
-            </div>
-          </div>
-          <!--/.row-->
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <label for="ccnumber">Số điện thoại</label>
-                <input type="text" class="form-control" id="ccnumber" placeholder="Nhập số điện thoại" ngModel name="phone">
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <label for="ccnumber">Mật khẩu đăng nhập</label>
-                <input type="password" class="form-control" id="ccnumber" placeholder="Nhập mật khẩu đăng nhập" ngModel name="password">
-              </div>
-            </div>
-          </div>
-
-          <!--/.row-->
-        </div>
-      </form>
-      <div class="card-footer">
-        <button type="submit" class="btn btn-sm btn-primary" (click)="onCreateSupervisor(f)">
-          <i class="fa fa-dot-circle-o"></i> Lưu</button>
-        <button type="reset" class="btn btn-sm btn-danger">
-          <i class="fa fa-ban"></i> Reset</button>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<div class="row">
-  <div class="col-lg-12">
-    <div class="card">
-      <div class="card-header">
         <i class="fa fa-align-justify"></i> Danh sách nhà hàng đã đăng kí
       </div>
       <div class="card-body">
@@ -77,17 +10,22 @@
             <tr>
               <th>Tên nhà hàng</th>
               <th>Địa chỉ</th>
+              <th>Chủ nhà hàng</th>
               <th>Số điện thoại</th>
-              <th>Status</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let u of userService.user$|async">
+            <tr *ngFor="let u of users$|async">
+              <td>{{u.restaurant_name}}</td>
+              <td>{{u.address}}</td>
               <td>{{u.name}}</td>
               <td>{{u.phone}}</td>
-              <td>Member</td>
               <td>
-                <span class="badge badge-success">Active</span>
+                <button type="button" class="btn btn-sm btn-danger" (click)="onEdit(u)">
+                  <i class="fa fa-edit"></i> Sửa</button>
+                  <button type="button" class="btn btn-sm btn-default" (click)="onDelete(u.id)">
+                    <i class="fa fa-trash"></i> Xóa</button>
               </td>
             </tr>
 
@@ -105,7 +43,10 @@
           </li>
         </ul>
       </div>
+      <div class="card-footer">
+        <button type="button" class="btn btn-sm btn-primary" (click)="onNew()">
+          <i class="fa fa-dot-circle-o"></i> Thêm mới</button>
+      </div>
     </div>
   </div>
-
 </div>

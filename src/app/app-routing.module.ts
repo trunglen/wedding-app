@@ -9,14 +9,14 @@ const routes: Routes = [
         path: '', component: HomeComponent, children: [
             { path: 'admin', loadChildren: './admin/admin.module#AdminModule' }
         ],
-        canActivate: [SuperAdminGuardService] 
+        canActivate: [SuperAdminGuardService]
     },
     { path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
     { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes, { useHash: true })],
     exports: [RouterModule]
 })
 export class AppRoutingModule { }

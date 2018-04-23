@@ -7,6 +7,7 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 
 
 import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/mapTo';
 
 const initialData: User[] = [];
@@ -30,8 +31,12 @@ export class UserService implements Resolve<boolean>{
     return this.httpService.Get(apiURL.getUsers).do(data => this.model.set(data === null ? [] : data)).mapTo(true);
   }
 
+  getUsers(role: string) {
+    return this.httpService.Get(apiURL.getUsers, { role: role }).do(data => this.model.set(data === null ? [] : data));
+  }
+
   createUser(user: User) {
-    return this.httpService.Post(apiURL.createUser, user).subscribe(res => {
+    return this.httpService.Post(apiURL.createUser, user).do(res => {
       var users = this.model.get();
       users.unshift(res);
       this.model.set(users);

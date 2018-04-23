@@ -8,9 +8,8 @@ import { PageNotFoundComponent } from './error/page-not-found/page-not-found.com
 import { HomeComponent } from './home/home.component';
 import { CoreModule } from './core/core.module';
 import { ToastDefaults, SnotifyModule, SnotifyService } from 'ng-snotify';
-
 import { HttpErrorService, AuthHttpService } from '../x/http/http.service';
-
+import { ToastNotificationService } from '../x/http/toast-notification.service';
 
 @NgModule({
   declarations: [
@@ -36,6 +35,7 @@ import { HttpErrorService, AuthHttpService } from '../x/http/http.service';
       useClass: AuthHttpService,
       multi: true
     },
+    ToastNotificationService,
     SnotifyService
   ],
   bootstrap: [AppComponent]

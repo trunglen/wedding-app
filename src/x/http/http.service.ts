@@ -68,8 +68,9 @@ export class HttpErrorService implements HttpInterceptor {
             if (err.error instanceof Error) {
                 console.error('An error accured', err.error.message)
             } else {
-                this.toastService.error(err.error['error'])
+                console.log(err.error['error'])
                 this.notifyService.error(err.error['error'])
+                return null
             }
             return Observable.throw(err);
         });

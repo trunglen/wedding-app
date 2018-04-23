@@ -7,6 +7,8 @@ import { ManagerComponent } from './manager/manager.component';
 import { StudentComponent } from './student/student.component';
 import { UserService } from '../xmodel/user.service';
 import { FormsModule } from '@angular/forms';
+import { SupervisorCreateComponent } from './supervisor/supervisor-create/supervisor-create.component';
+import { SupervisorUpdateComponent } from './supervisor/supervisor-update/supervisor-update.component';
 
 @NgModule({
   imports: [
@@ -14,7 +16,7 @@ import { FormsModule } from '@angular/forms';
     AdminRoutingModule,
     FormsModule
   ],
-  declarations: [SupervisorComponent, ManagerComponent, StudentComponent],
+  declarations: [SupervisorComponent, ManagerComponent, StudentComponent, SupervisorCreateComponent, SupervisorUpdateComponent],
   providers: [
     UserService
   ]

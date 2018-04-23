@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SnotifyService } from 'ng-snotify';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +6,7 @@ import { SnotifyService } from 'ng-snotify';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = 'app';
-  constructor(private snotifyService: SnotifyService) {}
+  constructor() { }
 }

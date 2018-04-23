@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <strong>Cập nhật account cho nhà hàng</strong>
+      </div>
+      <form #f="ngForm">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="name">Tên nhà hàng</label>
+                <input type="text" class="form-control" id="name" placeholder="Nhập tên cửa hàng" [(ngModel)]="user.restaurant_name" name="restaurant_name">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="name">Địa chỉ cửa hàng</label>
+                <input type="text" class="form-control" id="name" placeholder="Nhập địa chỉ cửa hàng" [(ngModel)]="user.address" name="address">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="name">Tên chủ nhà hàng</label>
+                <input type="text" class="form-control" id="name" placeholder="Nhập tên cửa hàng" [(ngModel)]="user.name" name="name">
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">Số điện thoại</label>
+                <input type="text" class="form-control" id="ccnumber" placeholder="Nhập số điện thoại" [(ngModel)]="user.phone" name="phone">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">Mật khẩu đăng nhập</label>
+                <input type="password" class="form-control" id="ccnumber" placeholder="Nhập mật khẩu đăng nhập" [(ngModel)]="user.password" name="password">
+              </div>
+            </div>
+          </div>
+
+          <!--/.row-->
+        </div>
+      </form>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-sm btn-primary" (click)="onCreateSupervisor(f)">
+          <i class="fa fa-dot-circle-o"></i> Lưu</button>
+        <button type="reset" class="btn btn-sm btn-danger">
+          <i class="fa fa-ban"></i> Reset</button>
+      </div>
+    </div>
+  </div>
+
+</div>
