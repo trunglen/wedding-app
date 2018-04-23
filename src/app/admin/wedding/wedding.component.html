@@ -1,0 +1,105 @@
+<div class="row">
+    <div class="col-lg-12">
+      <form action="" #f="ngForm">
+        <div class="card">
+          <div class="card-header">
+            <strong>Đám cưới mới</strong>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="name">Ngày tổ chức</label>
+                  <!-- <input type="text" class="form-control" id="name" placeholder="Nhập tên sinh viên" ngModel name="name"> -->
+                  <p-calendar ngModel name="name" [class]="form-control"></p-calendar>
+                </div>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="name">Số điện thoại cô dâu hoặc chú rể</label>
+                  <input type="text" class="form-control" id="name" placeholder="Nhập số điện thoại cô dâu hoặc chú rể" ngModel name="phone">
+                </div>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="form-group col-sm-2">
+                <label for="ccmonth">Số nhà</label>
+                <input type="text" class="form-control" id="ccnumber" placeholder="Nhập số nhà" ngModel name="information.home_number">
+              </div>
+              <div class="form-group col-sm-2">
+                <label for="ccyear">Đường</label>
+                <input type="text" class="form-control" id="ccnumber" placeholder="Nhập cân nặng" ngModel name="information.street">
+              </div>
+              <div class="col-sm-2">
+                <div class="form-group">
+                  <label for="cvv">Quận</label>
+                  <input type="number" class="form-control" id="ccnumber" placeholder="Nhập tên quận" ngModel name="information.district">
+                </div>
+              </div>
+            </div>
+            <!--/.row-->
+          </div>
+          <div class="card-footer">
+            <button type="submit" class="btn btn-sm btn-primary" (click)="onCreateStudent(f)">
+              <i class="fa fa-dot-circle-o"></i> Lưu</button>
+            <button type="reset" class="btn btn-sm btn-danger">
+              <i class="fa fa-ban"></i> Reset</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> Danh sách người quản lí đã đăng kí
+        </div>
+        <div class="card-body">
+          <table class="table table-responsive-sm">
+            <thead>
+              <tr>
+                <th>Tên người quản lí</th>
+                <th>Số</th>
+                <th>Số điện thoại</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let u of users$|async">
+                <td>{{u.name}}</td>
+                <td>{{u.phone}}</td>
+                <td>
+                  <span class="badge badge-success">Active</span>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-sm btn-danger" (click)="onEdit(u)">
+                    <i class="fa fa-edit"></i> Sửa</button>
+                  <button type="button" class="btn btn-sm btn-default" (click)="onDelete(u.id)">
+                    <i class="fa fa-trash"></i> Xóa</button>
+                </td>
+              </tr>
+  
+            </tbody>
+          </table>
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="#">Prev</a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+  </div>

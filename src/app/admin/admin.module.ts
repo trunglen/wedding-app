@@ -9,14 +9,16 @@ import { UserService } from '../xmodel/user.service';
 import { FormsModule } from '@angular/forms';
 import { SupervisorCreateComponent } from './supervisor/supervisor-create/supervisor-create.component';
 import { SupervisorUpdateComponent } from './supervisor/supervisor-update/supervisor-update.component';
-
+import { WeddingComponent } from './wedding/wedding.component';
+import { CalendarModule } from 'primeng/calendar';
 @NgModule({
   imports: [
     CommonModule,
     AdminRoutingModule,
-    FormsModule
+    FormsModule,
+    CalendarModule
   ],
-  declarations: [SupervisorComponent, ManagerComponent, StudentComponent, SupervisorCreateComponent, SupervisorUpdateComponent],
+  declarations: [SupervisorComponent, ManagerComponent, StudentComponent, SupervisorCreateComponent, SupervisorUpdateComponent, WeddingComponent],
   providers: [
     UserService
   ]

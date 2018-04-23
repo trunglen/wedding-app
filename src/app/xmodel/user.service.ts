@@ -53,5 +53,13 @@ export interface User {
   restaurant_name: string
   restaurant_address: string
   role: string
+  information: Information
 
+}
+
+interface Information {
+  height: number
+  weight: number
+  sex: boolean
+  rating: number
 }

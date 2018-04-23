@@ -10,6 +10,7 @@ import { CoreModule } from './core/core.module';
 import { ToastDefaults, SnotifyModule, SnotifyService } from 'ng-snotify';
 import { HttpErrorService, AuthHttpService } from '../x/http/http.service';
 import { ToastNotificationService } from '../x/http/toast-notification.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ToastNotificationService } from '../x/http/toast-notification.service';
     AppRoutingModule,
     CoreModule,
     SnotifyModule,
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule    
   ],
   providers: [
     { provide: 'SnotifyToastConfig', useValue: ToastDefaults },

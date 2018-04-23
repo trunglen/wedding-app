@@ -5,6 +5,8 @@ import { ManagerComponent } from './manager/manager.component';
 import { UserService } from '../xmodel/user.service';
 import { SupervisorCreateComponent } from './supervisor/supervisor-create/supervisor-create.component';
 import { SupervisorUpdateComponent } from './supervisor/supervisor-update/supervisor-update.component';
+import { StudentComponent } from './student/student.component';
+import { WeddingComponent } from './wedding/wedding.component';
 
 const routes: Routes = [
   {
@@ -17,6 +19,14 @@ const routes: Routes = [
     path: 'supervisor', component: SupervisorComponent, resolve: {
       userService: UserService
     }
+  },
+  {
+    path: 'student', component: StudentComponent, resolve: {
+      userService: UserService
+    }
+  },
+  {
+    path: 'wedding', component: WeddingComponent
   },
   {
     path: 'manager', component: ManagerComponent, resolve: {

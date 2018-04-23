@@ -1,20 +1,21 @@
 <div class="row">
   <div class="col-lg-12">
+    <form action="" #f="ngForm">
     <div class="card">
-      <div class="card-header">
-        <strong>Tạo account quản lí</strong>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="form-group">
-              <label for="name">Tên người quản lí</label>
-              <input type="text" class="form-control" id="name" placeholder="Nhập tên người quản lí" ngModel name="name">
+        <div class="card-header">
+          <strong>Tạo account quản lí</strong>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="name">Tên người quản lí</label>
+                <input type="text" class="form-control" id="name" placeholder="Nhập tên người quản lí" ngModel name="name">
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="row">
+          <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
                 <label for="name">Số điện thoại người quản lí</label>
@@ -23,7 +24,7 @@
             </div>
           </div>
 
-        <div class="row">
+          <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
                 <label for="ccnumber">Mật khẩu đăng nhập</label>
@@ -31,18 +32,18 @@
               </div>
             </div>
           </div>
-        
-        <!--/.row-->
-      </div>
-      <div class="card-footer">
-          <button type="submit" class="btn btn-sm btn-primary">
+
+          <!--/.row-->
+        </div>
+        <div class="card-footer">
+          <button type="submit" class="btn btn-sm btn-primary" (click)="onCreateManager(f)">
             <i class="fa fa-dot-circle-o"></i> Lưu</button>
           <button type="reset" class="btn btn-sm btn-danger">
             <i class="fa fa-ban"></i> Reset</button>
         </div>
     </div>
+  </form>
   </div>
-
 </div>
 
 <div class="row">
@@ -62,15 +63,20 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let u of userService.user$|async">
-              <td>Samppa Nori</td>
-              <td>2012/01/01</td>
-              <td>Member</td>
+            <tr *ngFor="let u of users$|async">
+              <td>{{u.name}}</td>
+              <td>{{u.phone}}</td>
               <td>
                 <span class="badge badge-success">Active</span>
               </td>
+              <td>
+                  <button type="button" class="btn btn-sm btn-danger" (click)="onEdit(u)">
+                    <i class="fa fa-edit"></i> Sửa</button>
+                    <button type="button" class="btn btn-sm btn-default" (click)="onDelete(u.id)">
+                      <i class="fa fa-trash"></i> Xóa</button>
+                </td>
             </tr>
-           
+
           </tbody>
         </table>
         <ul class="pagination">
@@ -89,4 +95,3 @@
   </div>
 
 </div>
-
