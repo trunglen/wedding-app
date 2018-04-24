@@ -22,6 +22,9 @@ export const apiURL = {
     login: getUrl('auth/login'),
     //report
     getGeneralReport: getUrl('admin/report/general'),
+    //manager create wedding
+    createWedding:getUrl('manager/wedding/create'),
+    getWeddings:getUrl('manager/wedding/list'),
     
 }
 function getUrl(endPoint: string) {

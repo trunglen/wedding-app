@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-12">
-      <form action="" #f="ngForm">
+      <form action="" #f="ngForm" [formGroup]="form">
         <div class="card">
           <div class="card-header">
             <strong>Đám cưới mới</strong>
@@ -11,7 +11,7 @@
                 <div class="form-group">
                   <label for="name">Ngày tổ chức</label>
                   <!-- <input type="text" class="form-control" id="name" placeholder="Nhập tên sinh viên" ngModel name="name"> -->
-                  <p-calendar ngModel name="name" [class]="form-control"></p-calendar>
+                  <p-calendar formControlName="htime"  styleClass="form-control" showTime="true" hourFormat="12"  dateFormat="dd-mm-yy" [defaultDate]="defaultDate"></p-calendar>
                 </div>
               </div>
             </div>
@@ -20,31 +20,31 @@
               <div class="col-sm-12">
                 <div class="form-group">
                   <label for="name">Số điện thoại cô dâu hoặc chú rể</label>
-                  <input type="text" class="form-control" id="name" placeholder="Nhập số điện thoại cô dâu hoặc chú rể" ngModel name="phone">
+                  <input type="text" class="form-control" id="name" placeholder="Nhập số điện thoại cô dâu hoặc chú rể" formControlName="phone">
                 </div>
               </div>
             </div>
   
-            <div class="row">
+            <div class="row" formGroupName="address">
               <div class="form-group col-sm-2">
                 <label for="ccmonth">Số nhà</label>
-                <input type="text" class="form-control" id="ccnumber" placeholder="Nhập số nhà" ngModel name="information.home_number">
+                <input type="text" class="form-control" id="ccnumber" placeholder="Nhập số nhà" formControlName="home_number">
               </div>
               <div class="form-group col-sm-2">
                 <label for="ccyear">Đường</label>
-                <input type="text" class="form-control" id="ccnumber" placeholder="Nhập cân nặng" ngModel name="information.street">
+                <input type="text" class="form-control" id="ccnumber" placeholder="Nhập cân nặng" formControlName="street">
               </div>
               <div class="col-sm-2">
                 <div class="form-group">
                   <label for="cvv">Quận</label>
-                  <input type="number" class="form-control" id="ccnumber" placeholder="Nhập tên quận" ngModel name="information.district">
+                  <input type="text" class="form-control" id="ccnumber" placeholder="Nhập tên quận" formControlName="district">
                 </div>
               </div>
             </div>
             <!--/.row-->
           </div>
           <div class="card-footer">
-            <button type="submit" class="btn btn-sm btn-primary" (click)="onCreateStudent(f)">
+            <button type="submit" class="btn btn-sm btn-primary" (click)="onCreateWedding()">
               <i class="fa fa-dot-circle-o"></i> Lưu</button>
             <button type="reset" class="btn btn-sm btn-danger">
               <i class="fa fa-ban"></i> Reset</button>
@@ -64,16 +64,16 @@
           <table class="table table-responsive-sm">
             <thead>
               <tr>
-                <th>Tên người quản lí</th>
-                <th>Số</th>
-                <th>Số điện thoại</th>
-                <th>Status</th>
+                <th>Đám cưới</th>
+                <th>Ngày tổ chức</th>
+                <th>Người tạo</th>
+                <th>Trạng thái</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let u of users$|async">
-                <td>{{u.name}}</td>
-                <td>{{u.phone}}</td>
+              <tr *ngFor="let w of weddingService.weddings$|async">
+                <td>{{w.address.home_number}}</td>
+                <td>{{u.htime}}</td>
                 <td>
                   <span class="badge badge-success">Active</span>
                 </td>
