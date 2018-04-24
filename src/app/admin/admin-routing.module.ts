@@ -21,7 +21,7 @@ const routes: Routes = [
   {
     path: 'supervisor', component: SupervisorComponent, resolve: {
       userService: UserService
-    }, canActivate: [ManagerGuardService]
+    }
   },
   {
     path: 'student', component: StudentComponent, resolve: {

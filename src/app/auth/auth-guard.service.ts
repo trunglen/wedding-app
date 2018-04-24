@@ -27,7 +27,6 @@ export class SuperAdminGuardService implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> {
         const token = SessionFactory.getItem('access_token') 
-        console.log(token)
         if (token.user_info) {
             if (token['user_info'].role === 'super-admin') {
                 return true;
@@ -46,7 +45,6 @@ export class SupervisorGuardService implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> {
         const token = SessionFactory.getItem('access_token') 
-        console.log(token)
         if (token.user_info) {
             if (token['user_info'].role === 'supervisor' || token['user_info'].role === 'super-admin') {
                 return true;
@@ -65,7 +63,6 @@ export class ManagerGuardService implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> {
         const token = SessionFactory.getItem('access_token') 
-        console.log(token)
         if (token.user_info) {
             if (token['user_info'].role === 'super-admin' || token['user_info'].role === 'supervisor' || token['user_info'].role === 'manager') {
                 return true;
