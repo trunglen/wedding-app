@@ -28,11 +28,11 @@ export class UserService implements Resolve<boolean>{
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
-    return this.httpService.Get(apiURL.getUsers).do(data => this.model.set(data === null ? [] : data)).mapTo(true);
+    return this.httpService.Get(apiURL.getUsers).do(data => this.model.set(data ? data : [])).mapTo(true);
   }
 
   getUsers(role: string) {
-    return this.httpService.Get(apiURL.getUsers, { role: role }).do(data => this.model.set(data === null ? [] : data));
+    return this.httpService.Get(apiURL.getUsers, { role: role }).do(data => this.model.set(data ? data : []));
   }
 
   createUser(user: User) {

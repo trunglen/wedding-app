@@ -8,6 +8,8 @@ import { SupervisorUpdateComponent } from './supervisor/supervisor-update/superv
 import { StudentComponent } from './student/student.component';
 import { WeddingComponent } from './wedding/wedding.component';
 import { WeddingService } from '../xmodel/wedding.service';
+import { WeddingDetailComponent } from './wedding/wedding-detail/wedding-detail.component';
+import { ManagerGuardService } from '../auth/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -19,12 +21,15 @@ const routes: Routes = [
   {
     path: 'supervisor', component: SupervisorComponent, resolve: {
       userService: UserService
-    }
+    }, canActivate: [ManagerGuardService]
   },
   {
     path: 'student', component: StudentComponent, resolve: {
       userService: UserService
     }
+  },
+  {
+    path: 'wedding/detail/:id', component: WeddingDetailComponent,
   },
   {
     path: 'wedding', component: WeddingComponent, resolve: {

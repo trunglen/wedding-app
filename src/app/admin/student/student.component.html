@@ -57,6 +57,14 @@
                 </div>
               </div>
             </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label for="cvv">Năm sinh</label>
+                <select name="" class="form-control" id="">
+                  <option value="1985">1985</option>
+                </select>
+              </div>
+            </div>
           </div>
           <!--/.row-->
         </div>
@@ -93,10 +101,10 @@
               <td>{{u.name}}</td>
               <td>{{u.phone}}</td>
               <td>
-                {{u.information.height}}
+                {{u.information.height}} m
               </td>
               <td>
-                {{u.information.weight}}
+                {{u.information.weight}} kg
               </td>
               <td>
                 <button type="button" class="btn btn-sm btn-danger" (click)="onEdit(u)">

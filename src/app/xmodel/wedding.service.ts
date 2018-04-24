@@ -31,10 +31,14 @@ export class WeddingService implements Resolve<boolean>{
       const weddings = this.model.get();
       weddings.unshift(wedding);
       this.model.set(weddings);
-    });
+    })
+  }
 
+  getWedding(id: string) {
+    return this.httpService.Get(apiURL.getWedding, { id: id });
   }
 }
+
 
 export interface Wedding {
   id: string
@@ -42,13 +46,23 @@ export interface Wedding {
   htime: string
   restaurant_id: string
   created_by: string
-  student_status: string
+  students: Student[]
   status: string
   verify_code: string
   address: Address
+  number_of_students: number
 }
+
 interface Address {
   home_number: string
   street: string
   district: string
+}
+
+interface Student {
+  id: string
+  phone: string
+  sex: string
+  name: string
+  status: string
 }

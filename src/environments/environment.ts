@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  baseURL:'http://localhost:3003/api/',
-  staticURL:'http://localhost:3003/static/',
+  baseURL:'http://localhost:3001/api/',
+  staticURL:'http://localhost:3001/static/',
 };

@@ -12,18 +12,24 @@ import { SupervisorUpdateComponent } from './supervisor/supervisor-update/superv
 import { WeddingComponent } from './wedding/wedding.component';
 import { CalendarModule } from 'primeng/calendar';
 import { WeddingService } from '../xmodel/wedding.service';
+import { SharedModule } from '../shared/shared.module';
+import { WeddingDetailComponent } from './wedding/wedding-detail/wedding-detail.component';
+import { ManagerGuardService } from '../auth/auth-guard.service';
+
 @NgModule({
   imports: [
     CommonModule,
     AdminRoutingModule,
     FormsModule,
     CalendarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
-  declarations: [SupervisorComponent, ManagerComponent, StudentComponent, SupervisorCreateComponent, SupervisorUpdateComponent, WeddingComponent],
+  declarations: [SupervisorComponent, ManagerComponent, StudentComponent, SupervisorCreateComponent, SupervisorUpdateComponent, WeddingComponent, WeddingDetailComponent],
   providers: [
     UserService,
-    WeddingService
+    WeddingService,
+    ManagerGuardService
   ]
 })
 export class AdminModule { }

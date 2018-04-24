@@ -37,3 +37,41 @@ export class SuperAdminGuardService implements CanActivate {
         return false;
     }
 }
+
+@Injectable()
+export class SupervisorGuardService implements CanActivate {
+    constructor(
+        private router: Router,
+    ) { }
+
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> {
+        const token = SessionFactory.getItem('access_token') 
+        console.log(token)
+        if (token.user_info) {
+            if (token['user_info'].role === 'supervisor' || token['user_info'].role === 'super-admin') {
+                return true;
+            }
+        }
+        this.router.navigate(["/auth/signin"]);
+        return false;
+    }
+}
+
+@Injectable()
+export class ManagerGuardService implements CanActivate {
+    constructor(
+        private router: Router,
+    ) { }
+
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> {
+        const token = SessionFactory.getItem('access_token') 
+        console.log(token)
+        if (token.user_info) {
+            if (token['user_info'].role === 'super-admin' || token['user_info'].role === 'supervisor' || token['user_info'].role === 'manager') {
+                return true;
+            }
+        }
+        this.router.navigate(["/auth/signin"]);
+        return false;
+    }
+}

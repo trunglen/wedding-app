@@ -25,6 +25,7 @@ export const apiURL = {
     //manager create wedding
     createWedding:getUrl('manager/wedding/create'),
     getWeddings:getUrl('manager/wedding/list'),
+    getWedding:getUrl('manager/wedding/detail'),
     
 }
 function getUrl(endPoint: string) {
