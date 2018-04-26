@@ -14,22 +14,19 @@ import { CalendarModule } from 'primeng/calendar';
 import { WeddingService } from '../xmodel/wedding.service';
 import { SharedModule } from '../shared/shared.module';
 import { WeddingDetailComponent } from './wedding/wedding-detail/wedding-detail.component';
-import { ManagerGuardService } from '../auth/auth-guard.service';
+import { StudentDetailComponent } from './student/student-detail/student-detail.component';
+import { StudentUpdateComponent } from './student/student-update/student-update.component';
+import { StudentCreateComponent } from './student/student-create/student-create.component';
 
 @NgModule({
   imports: [
     CommonModule,
     AdminRoutingModule,
-    FormsModule,
-    CalendarModule,
-    ReactiveFormsModule,
-    SharedModule
   ],
-  declarations: [SupervisorComponent, ManagerComponent, StudentComponent, SupervisorCreateComponent, SupervisorUpdateComponent, WeddingComponent, WeddingDetailComponent],
+  declarations: [],
   providers: [
     UserService,
     WeddingService,
-    ManagerGuardService
   ]
 })
 export class AdminModule { }

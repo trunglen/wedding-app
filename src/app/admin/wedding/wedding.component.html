@@ -1,70 +1,10 @@
-<div class="row">
-  <div class="col-lg-12">
-    <form action="" #f="ngForm" [formGroup]="form">
-      <div class="card">
-        <div class="card-header">
-          <strong>Đám cưới mới</strong>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-sm-8">
-              <div class="form-group">
-                <label for="name">Ngày tổ chức</label>
-                <!-- <input type="text" class="form-control" id="name" placeholder="Nhập tên sinh viên" ngModel name="name"> -->
-                <p-calendar formControlName="htime" styleClass="form-control" showTime="true" hourFormat="12" dateFormat="dd-mm-yy" [defaultDate]="defaultDate"></p-calendar>
-              </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="form-group">
-                  <label for="name">Số người bưng lễ</label>
-                  <input type="number" class="form-control" id="name" placeholder="Nhập số người bưng lễ" formControlName="number_of_students">
-                </div>
-              </div>
-          </div>
 
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <label for="name">Số điện thoại cô dâu hoặc chú rể</label>
-                <input type="text" class="form-control" id="name" placeholder="Nhập số điện thoại cô dâu hoặc chú rể" formControlName="phone">
-              </div>
-            </div>
-          </div>
-
-          <div class="row" formGroupName="address">
-            <div class="form-group col-sm-4">
-              <label for="ccmonth">Số nhà</label>
-              <input type="text" class="form-control" id="ccnumber" placeholder="Nhập số nhà" formControlName="home_number">
-            </div>
-            <div class="form-group col-sm-4">
-              <label for="ccyear">Đường</label>
-              <input type="text" class="form-control" id="ccnumber" placeholder="Nhập tên đường" formControlName="street">
-            </div>
-            <div class="col-sm-4">
-              <div class="form-group">
-                <label for="cvv">Quận</label>
-                <input type="text" class="form-control" id="ccnumber" placeholder="Nhập tên quận" formControlName="district">
-              </div>
-            </div>
-          </div>
-          <!--/.row-->
-        </div>
-        <div class="card-footer">
-          <button type="submit" class="btn btn-sm btn-primary" (click)="onCreateWedding()">
-            <i class="fa fa-dot-circle-o"></i> Lưu</button>
-          <button type="reset" class="btn btn-sm btn-danger">
-            <i class="fa fa-ban"></i> Reset</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
 
 <div class="row">
   <div class="col-lg-12">
     <div class="card">
       <div class="card-header">
-        <i class="fa fa-align-justify"></i> Danh sách sinh viên
+        <i class="fa fa-align-justify"></i> Danh sách đám cưới
       </div>
       <div class="card-body">
         <table class="table table-responsive-sm">
@@ -73,21 +13,28 @@
               <th>Đám cưới</th>
               <th>Ngày tổ chức</th>
               <th>Trạng thái</th>
+              <th>Số người</th>              
+              <th>Tham gia</th>              
               <th></th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let w of weddingService.weddings$|async">
-              <td>{{w.address.home_number}}</td>
+              <td>Số nhà {{w.address.home_number}} đường {{w.address.street}} quận {{w.address.district}}</td>
               <td>{{w.htime|date:'dd-MM-yyyy hh:mm'}}</td>
               <td>
-                  <button type="button" class="btn btn-sm btn-danger" (click)="onDetail(w)">
+                  <span class="badge badge-pill badge-primary" *ngIf="w.students.length===w.number_of_students">Đủ người</span>
+                  <span class="badge badge-pill badge-danger" *ngIf="w.students.length<w.number_of_students">Thiếu người</span>
+                  <span class="badge badge-pill badge-success" *ngIf="w.status==='finished'">Đã hoàn thành</span>
+                  <button type="button" class="btn btn-sm btn-primary" (click)="onDetail(w)">
                       <i class="fa fa-eye"></i>Xem</button>
               </td>
+              <td>{{w.number_of_students}}</td>              
+              <td>{{w.students.length}}</td>              
               <td>
-                <button type="button" class="btn btn-sm btn-danger" (click)="onEdit(u)">
+                <button type="button" class="btn btn-sm btn-danger" (click)="onEdit(w)">
                   <i class="fa fa-edit"></i> Sửa</button>
-                <button type="button" class="btn btn-sm btn-default" (click)="onDelete(u.id)">
+                <button type="button" class="btn btn-sm btn-default" (click)="onDelete(w.id)">
                   <i class="fa fa-trash"></i> Xóa</button>
               </td>
             </tr>
@@ -105,6 +52,10 @@
             <a class="page-link" href="#">Next</a>
           </li>
         </ul>
+      </div>
+      <div class="card-footer">
+        <button type="button" class="btn btn-sm btn-primary" [routerLink]="['create']">
+          <i class="fa fa-dot-circle-o"></i> Thêm mới</button>
       </div>
     </div>
   </div>

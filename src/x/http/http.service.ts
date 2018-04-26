@@ -14,6 +14,7 @@ import { ToastNotificationService } from './toast-notification.service';
 import { SpinnerService } from '../../app/core/spinner.service';
 import { SnotifyService } from 'ng-snotify';
 import { SessionFactory } from '../storage.utils';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class HttpService {
@@ -60,19 +61,24 @@ export class AuthHttpService implements HttpInterceptor {
 export class HttpErrorService implements HttpInterceptor {
     constructor(
         private toastService: ToastNotificationService,
-        private notifyService: SnotifyService
+        private notifyService: SnotifyService,
+        private router: Router
     ) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(req).catch((err: HttpErrorResponse) => {
-            if (err.error instanceof Error) {
-                console.error('An error accured', err.error.message)
+            if (err.status == 0) {
+                this.notifyService.error('Không thể kết nối đến server')
+                this.router.navigate(['/auth/signin'])
+                return Observable.throw(null);
             } else {
-                console.log(err.error['error'])
-                this.notifyService.error(err.error['error'])
-                return null
+                if( err.status === 401){
+                    this.router.navigate(['/auth/signin'])
+                } else if (err.error['error']) {
+                    this.notifyService.error(err.error['error'])
+                }
+                return Observable.throw(null);
             }
-            return Observable.throw(err);
         });
     }
 }

@@ -8,7 +8,7 @@ import { AsideMenuComponent } from './aside-menu/aside-menu.component';
 import { HttpService, HttpErrorService } from '../../x/http/http.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { SuperAdminGuardService, AuthGuardService } from '../auth/auth-guard.service';
+import { SupervisorLoadService, SuperAdminLoadService, ManagerLoadService, ManagerGuardService } from '../auth/auth-guard.service';
 import { NgxModelModule } from 'ngx-model';
 
 @NgModule({
@@ -27,8 +27,10 @@ import { NgxModelModule } from 'ngx-model';
   declarations: [HeaderComponent, FooterComponent, SidebarComponent, AsideMenuComponent],
   providers: [
     HttpService,
-    SuperAdminGuardService,
-    AuthGuardService
+    SuperAdminLoadService,
+    SupervisorLoadService,
+    ManagerLoadService,
+    ManagerGuardService
   ]
 })
 export class CoreModule { }

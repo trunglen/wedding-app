@@ -19,7 +19,7 @@
             <div class="col-sm-12">
               <div class="form-group">
                 <label for="name">Địa chỉ cửa hàng</label>
-                <input type="text" class="form-control" id="name" placeholder="Nhập địa chỉ cửa hàng" [(ngModel)]="user.restaurant_address" name="address">
+                <input type="text" class="form-control" id="name" placeholder="Nhập địa chỉ cửa hàng" [(ngModel)]="user.restaurant_address" name="restaurant_address">
               </div>
             </div>
           </div>
@@ -41,21 +41,11 @@
               </div>
             </div>
           </div>
-
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <label for="ccnumber">Mật khẩu đăng nhập</label>
-                <input type="password" class="form-control" id="ccnumber" placeholder="Nhập mật khẩu đăng nhập" [(ngModel)]="user.password" name="password">
-              </div>
-            </div>
-          </div>
-
           <!--/.row-->
         </div>
       </form>
       <div class="card-footer">
-        <button type="submit" class="btn btn-sm btn-primary">
+        <button type="submit" class="btn btn-sm btn-primary" (click)="onSave(f)">
           <i class="fa fa-dot-circle-o"></i> Lưu</button>
         <button type="reset" class="btn btn-sm btn-danger">
           <i class="fa fa-ban"></i> Reset</button>

@@ -35,12 +35,27 @@ export class UserService implements Resolve<boolean>{
     return this.httpService.Get(apiURL.getUsers, { role: role }).do(data => this.model.set(data ? data : []));
   }
 
+  getUser(id: string) {
+    return this.httpService.Get<User>(apiURL.getUser, { id: id })
+  }
+
   createUser(user: User) {
     return this.httpService.Post(apiURL.createUser, user).do(res => {
       var users = this.model.get();
       users.unshift(res);
       this.model.set(users);
     })
+  }
+  deleteUser(id: string) {
+    return this.httpService.Get(apiURL.deleteUser, { id: id }).do(res => {
+      var users = this.model.get();
+      users.splice(users.indexOf(users.find(user => user.id === id)), 1);
+      this.model.set(users);
+    })
+  }
+
+  updateSupervisor(u: User) {
+    return this.httpService.Post(apiURL.updateSupervisor, u)
   }
 }
 
@@ -62,4 +77,5 @@ interface Information {
   weight: number
   sex: boolean
   rating: number
+  birth_year: number
 }

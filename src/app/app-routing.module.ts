@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './error/page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
-import { AuthGuardService, SuperAdminGuardService } from './auth/auth-guard.service';
+import { ManagerGuardService } from './auth/auth-guard.service';
 
 const routes: Routes = [
     {
         path: '', component: HomeComponent, children: [
             { path: 'admin', loadChildren: './admin/admin.module#AdminModule' }
         ],
-        canActivate: [SuperAdminGuardService]
+        canActivate: [ManagerGuardService]
     },
     { path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
     { path: '**', component: PageNotFoundComponent },

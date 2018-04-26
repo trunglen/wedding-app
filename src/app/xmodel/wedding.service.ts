@@ -37,6 +37,18 @@ export class WeddingService implements Resolve<boolean>{
   getWedding(id: string) {
     return this.httpService.Get(apiURL.getWedding, { id: id });
   }
+
+  deleteWedding(id: string) {
+    return this.httpService.Get(apiURL.deleteWedding, { id: id }).do(res => {
+      var weddings = this.model.get();
+      weddings.splice(weddings.indexOf(weddings.find(w => w.id === id)), 1);
+      this.model.set(weddings);
+    });
+  }
+
+  updateWedding(w: Wedding) {
+    return this.httpService.Post(apiURL.updateWedding, w);
+  }
 }
 
 

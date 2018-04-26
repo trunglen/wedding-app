@@ -9,37 +9,22 @@ import { StudentComponent } from './student/student.component';
 import { WeddingComponent } from './wedding/wedding.component';
 import { WeddingService } from '../xmodel/wedding.service';
 import { WeddingDetailComponent } from './wedding/wedding-detail/wedding-detail.component';
-import { ManagerGuardService } from '../auth/auth-guard.service';
+import { StudentDetailComponent } from './student/student-detail/student-detail.component';
+import { SuperAdminLoadService, ManagerLoadService, SupervisorLoadService } from '../auth/auth-guard.service';
 
 const routes: Routes = [
+
   {
-    path: 'supervisor/create', component: SupervisorCreateComponent
+    path: 'supervisor', loadChildren: './supervisor/supervisor.module#SupervisorModule', canLoad: [SuperAdminLoadService]
   },
   {
-    path: 'supervisor/edit/:id', component: SupervisorUpdateComponent
+    path: 'student', loadChildren: './student/student.module#StudentModule', canLoad: [ManagerLoadService]
   },
   {
-    path: 'supervisor', component: SupervisorComponent, resolve: {
-      userService: UserService
-    }
+    path: 'wedding', loadChildren: './wedding/wedding.module#WeddingModule', canLoad: [ManagerLoadService]
   },
   {
-    path: 'student', component: StudentComponent, resolve: {
-      userService: UserService
-    }
-  },
-  {
-    path: 'wedding/detail/:id', component: WeddingDetailComponent,
-  },
-  {
-    path: 'wedding', component: WeddingComponent, resolve: {
-      weddingService: WeddingService
-    }
-  },
-  {
-    path: 'manager', component: ManagerComponent, resolve: {
-      userService: UserService
-    }
+    path: 'manager', loadChildren: './manager/manager.module#ManagerModule', canLoad: [SupervisorLoadService]
   }
 ];
 

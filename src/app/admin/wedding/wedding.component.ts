@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { WeddingService, Wedding } from '../../xmodel/wedding.service';
-import { ToastNotificationService } from '../../../x/http/toast-notification.service';
+import { Wedding, WeddingService } from '../../xmodel/wedding.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ToastNotificationService } from '../../../x/http/toast-notification.service';
 
 @Component({
   selector: 'app-wedding',
@@ -10,41 +9,29 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./wedding.component.css']
 })
 export class WeddingComponent implements OnInit {
-  defaultDate = new Date()
-  form: FormGroup
   constructor(
-    private fb: FormBuilder,
-    private weddingService: WeddingService,
-    private toastService: ToastNotificationService,
     private router: Router,
-    private activedRoute: ActivatedRoute
+    private activedRoute: ActivatedRoute,
+    public weddingService: WeddingService,
+    private notificationService: ToastNotificationService
   ) { }
 
   ngOnInit() {
-    this.defaultDate.setHours(9)
-    this.defaultDate.setMinutes(0)
-    this.form = this.fb.group({
-      'name': new FormControl(''),
-      'number_of_students': new FormControl(14),
-      'htime': new FormControl(this.defaultDate),
-      'phone': new FormControl(),
-      'address': this.fb.group({
-        'home_number': new FormControl(),
-        'street': new FormControl(),
-        'district': new FormControl()
-      })
-    })
-  }
-
-  onCreateWedding() {
-    const value = this.form.value
-    this.weddingService.addWedding(value).subscribe(res => {
-      this.toastService.success('Thêm đám cưới thành công')
-    })
   }
 
   onDetail(w: Wedding) {
-    console.log(w)
     this.router.navigate([`detail/${w.id}`], { relativeTo: this.activedRoute })
+  }
+
+  onEdit(w: Wedding) {
+    this.router.navigate([`edit/${w.id}`], { relativeTo: this.activedRoute })
+  }
+
+  onDelete(id: string) {
+    this.notificationService.confirm("Bạn có chắc muốn xóa").subscribe(yes => {
+      this.weddingService.deleteWedding(id).subscribe(res => {
+        this.notificationService.success('Đã xóa thành công')
+      })
+    })
   }
 }

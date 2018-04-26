@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionFactory } from '../../x/storage.utils';
 
 @Component({
   selector: 'wedding-home',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  restaurantName: ''
   constructor() { }
-
   ngOnInit() {
+    const restaurantName = SessionFactory.getItem('access_token') ? SessionFactory.getItem('access_token').user_info.restaurant_name : null
+    this.restaurantName = restaurantName?restaurantName:'Quản lí bê tráp nhà hàng'
   }
 
 }

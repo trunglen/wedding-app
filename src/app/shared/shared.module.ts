@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CircleComponent } from './circle/circle.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
-    CircleComponent
+    FormsModule,
+    ReactiveFormsModule
   ],
-  declarations: [CircleComponent]
+  declarations: []
 })
 export class SharedModule { }
