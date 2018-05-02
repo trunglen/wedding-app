@@ -11,6 +11,7 @@ import { WeddingService } from '../xmodel/wedding.service';
 import { WeddingDetailComponent } from './wedding/wedding-detail/wedding-detail.component';
 import { StudentDetailComponent } from './student/student-detail/student-detail.component';
 import { SuperAdminLoadService, ManagerLoadService, SupervisorLoadService } from '../auth/auth-guard.service';
+import { SettingComponent } from './setting/setting.component';
 
 const routes: Routes = [
 
@@ -25,6 +26,9 @@ const routes: Routes = [
   },
   {
     path: 'manager', loadChildren: './manager/manager.module#ManagerModule', canLoad: [SupervisorLoadService]
+  },
+  {
+    path: 'setting', loadChildren: './setting/setting.module#SettingModule',  canLoad: [ManagerLoadService]
   }
 ];
 

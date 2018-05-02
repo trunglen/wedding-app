@@ -1,3 +1,58 @@
-<p>
-  manager-create works!
-</p>
+<div class="row">
+  <div class="col-lg-12">
+    <form action="" #f="ngForm">
+      <div class="card">
+        <div class="card-header">
+          <strong>Tạo account quản lí</strong>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="name">Tên người quản lí</label>
+                <input type="text" class="form-control" id="name" placeholder="Nhập tên người quản lí" ngModel name="name">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="name">Số điện thoại</label>
+                <input type="text" class="form-control" id="name" placeholder="Nhập số điện thoại" ngModel name="phone">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="name">Nhà hàng</label>
+                <select name="restaurant_id" ngModel class="form-control">
+                  <option [value]="r.id" *ngFor="let r of restaurant$|async">{{r.restaurant_name}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="ccnumber">Mật khẩu đăng nhập</label>
+                <input type="password" class="form-control" id="ccnumber" placeholder="Nhập mật khẩu đăng nhập" ngModel name="password">
+              </div>
+            </div>
+          </div>
+
+          <!--/.row-->
+        </div>
+        <div class="card-footer">
+          <button type="submit" class="btn btn-sm btn-primary" (click)="onCreateManager(f)">
+            <i class="fa fa-dot-circle-o"></i> Lưu</button>
+          <button type="reset" class="btn btn-sm btn-danger">
+            <i class="fa fa-ban"></i> Reset</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

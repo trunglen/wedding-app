@@ -3,7 +3,7 @@ import { UserService, User } from '../../xmodel/user.service';
 import { NgForm } from '@angular/forms';
 import { ToastNotificationService } from '../../../x/http/toast-notification.service';
 import { Observable } from 'rxjs/Observable';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-manager',
@@ -17,11 +17,12 @@ export class ManagerComponent implements OnInit {
     public userService: UserService,
     private notifycationService: ToastNotificationService,
     private router: Router,
+    private activedRoute: ActivatedRoute,
     private notificationService: ToastNotificationService
   ) { }
 
   ngOnInit() {
-    this.users$ = this.userService.getUsers('manager')
+    this.users$ = this.userService.getManagers()
   }
 
   onCreateManager(f: NgForm) {
@@ -33,14 +34,18 @@ export class ManagerComponent implements OnInit {
   }
 
   onEdit(u: User) {
-    this.router.navigate([`update/${u.id}`], { queryParams: u })
+    this.router.navigate([`update/${u.id}`], { relativeTo: this.activedRoute, queryParams: u })
   }
-  
+
   onDelete(id: string) {
     this.notificationService.confirm("Bạn có chắc muốn xóa").subscribe(yes => {
-      this.userService.deleteUser(id).subscribe(res=>{
+      this.userService.deleteUser(id).subscribe(res => {
         this.notificationService.success('Đã xóa thành công')
       })
     })
+  }
+
+  onNew() {
+    this.router.navigate(['admin/manager/create'])
   }
 }

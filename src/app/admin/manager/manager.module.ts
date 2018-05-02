@@ -17,6 +17,6 @@ import { ManagerUpdateComponent } from './manager-update/manager-update.componen
     ManagerComponent,
     ManagerCreateComponent,
     ManagerUpdateComponent
-  ]
+  ],
 })
 export class ManagerModule { }

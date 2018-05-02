@@ -4,20 +4,21 @@ import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { ToastNotificationService } from '../../../x/http/toast-notification.service';
+import { ListComponent } from '../../shared/list.component';
 
 @Component({
   selector: 'app-supervisor',
   templateUrl: './supervisor.component.html',
   styleUrls: ['./supervisor.component.css']
 })
-export class SupervisorComponent implements OnInit {
+export class SupervisorComponent extends ListComponent implements OnInit {
 
   users$: Observable<User[]>;
   constructor(
     public userService: UserService,
     private router: Router,
     private notificationService: ToastNotificationService
-  ) { }
+  ) { super() }
 
   ngOnInit() {
     this.users$ = this.userService.getUsers("supervisor")

@@ -19,7 +19,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let w of weddingService.weddings$|async">
+            <tr *ngFor="let w of weddingService.weddings$|async| paginate: { itemsPerPage: 10, currentPage: p }">
               <td>Số nhà {{w.address.home_number}} đường {{w.address.street}} quận {{w.address.district}}</td>
               <td>{{w.htime|date:'dd-MM-yyyy hh:mm'}}</td>
               <td>
@@ -42,15 +42,7 @@
           </tbody>
         </table>
         <ul class="pagination">
-          <li class="page-item">
-            <a class="page-link" href="#">Prev</a>
-          </li>
-          <li class="page-item active">
-            <a class="page-link" href="#">1</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-          </li>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </ul>
       </div>
       <div class="card-footer">

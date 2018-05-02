@@ -35,6 +35,14 @@ export class UserService implements Resolve<boolean>{
     return this.httpService.Get(apiURL.getUsers, { role: role }).do(data => this.model.set(data ? data : []));
   }
 
+  getUsersByRole(role: string) {
+    return this.httpService.Get(apiURL.getUsers, { role: role })
+  }
+
+  getManagers() {
+    return this.httpService.Get(apiURL.getManagers)
+  }
+
   getUser(id: string) {
     return this.httpService.Get<User>(apiURL.getUser, { id: id })
   }
@@ -46,6 +54,7 @@ export class UserService implements Resolve<boolean>{
       this.model.set(users);
     })
   }
+
   deleteUser(id: string) {
     return this.httpService.Get(apiURL.deleteUser, { id: id }).do(res => {
       var users = this.model.get();
@@ -56,6 +65,10 @@ export class UserService implements Resolve<boolean>{
 
   updateSupervisor(u: User) {
     return this.httpService.Post(apiURL.updateSupervisor, u)
+  }
+
+  changePassword(body) {
+    return this.httpService.Post(apiURL.changePassword, body)
   }
 }
 

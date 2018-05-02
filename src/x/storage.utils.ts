@@ -15,4 +15,7 @@ export class SessionFactory {
     static setItem(key: string, value: Object) {
         return sessionStorage.setItem(key, JSON.stringify(value));
     }
+    static getInfo() {
+        return this.getItem('access_token')
+    }
 }

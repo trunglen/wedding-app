@@ -3,14 +3,14 @@
     <form action="" #f="ngForm">
       <div class="card">
         <div class="card-header">
-          <strong>Cập nhật account quản lí</strong>
+          <strong>Cập nhật mật khấu</strong>
         </div>
         <div class="card-body">
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
-                <label for="name">Tên người quản lí</label>
-                <input type="text" class="form-control" id="name" placeholder="Nhập tên người quản lí" [(ngModel)]="manager.name" name="name">
+                <label for="name">Mật khẩu cũ</label>
+                <input type="text" class="form-control" id="name" placeholder="Nhập mật khẩu cũ" ngModel name="old_password">
               </div>
             </div>
           </div>
@@ -18,21 +18,18 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="form-group">
-                <label for="name">Nhà hàng</label>
-                <select name="restaurant_id" [(ngModel)]="manager.restaurant_id" class="form-control">
-                  <option [value]="r.id" *ngFor="let r of restaurant$|async">{{r.restaurant_name}}</option>
-                </select>
+                <label for="name">Mật khẩu mới</label>
+                <input type="text" class="form-control" id="name" placeholder="Nhập mật khẩu mới" ngModel name="new_password">
               </div>
             </div>
           </div>
-
           <!--/.row-->
         </div>
         <div class="card-footer">
-          <button type="submit" class="btn btn-sm btn-primary" (click)="onCreateManager(f)">
+          <button type="submit" class="btn btn-sm btn-primary" (click)="onChangeInfo(f)">
             <i class="fa fa-dot-circle-o"></i> Lưu</button>
           <button type="reset" class="btn btn-sm btn-danger">
-            <i class="fa fa-ban"></i> Reset</button>
+            <i class="fa fa-ban" (click)="f.reset()"></i> Reset</button>
         </div>
       </div>
     </form>
