@@ -37,6 +37,7 @@ export class WeddingCreateComponent implements OnInit {
 
   onCreateWedding() {
     const value = this.form.value
+    value.htime = new Date(value.htime).getTime()
     this.weddingService.addWedding(value).subscribe(res => {
       this.toastService.success('Thêm đám cưới thành công')
       this.router.navigate(["../"], { relativeTo: this.activedRoute })

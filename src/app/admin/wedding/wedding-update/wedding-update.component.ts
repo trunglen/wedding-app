@@ -33,7 +33,7 @@ export class WeddingUpdateComponent implements OnInit {
   }
 
   onSave() {
-    this.wedding.htime = this.defaultDate.toString()
+    this.wedding.htime = this.defaultDate.getTime()
     this.weddingService.updateWedding(this.wedding).subscribe(res => {
       this.toastService.success('Cập nhật thành công')
       this.router.navigate(["../../"], { relativeTo: this.activedRoute })

@@ -55,7 +55,7 @@ export class WeddingService implements Resolve<boolean>{
 export interface Wedding {
   id: string
   phone: string
-  htime: string
+  htime: number
   restaurant_id: string
   created_by: string
   students: Student[]
