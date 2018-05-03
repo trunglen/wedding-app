@@ -3,20 +3,21 @@ import { NgForm } from '@angular/forms';
 import { UserService, User } from '../../xmodel/user.service';
 import { Observable } from 'rxjs/Observable';
 import { ToastNotificationService } from '../../../x/http/toast-notification.service';
+import { ListComponent } from '../../shared/list.component';
 
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
   styleUrls: ['./student.component.css']
 })
-export class StudentComponent implements OnInit {
+export class StudentComponent extends ListComponent implements OnInit {
 
   users$: Observable<User[]>
   constructor(
     public userService: UserService,
     private notificationService: ToastNotificationService
 
-  ) { }
+  ) {super() }
 
   ngOnInit() {
     this.users$ = this.userService.getUsers('student')

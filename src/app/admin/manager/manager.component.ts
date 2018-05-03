@@ -4,13 +4,14 @@ import { NgForm } from '@angular/forms';
 import { ToastNotificationService } from '../../../x/http/toast-notification.service';
 import { Observable } from 'rxjs/Observable';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ListComponent } from '../../shared/list.component';
 
 @Component({
   selector: 'app-manager',
   templateUrl: './manager.component.html',
   styleUrls: ['./manager.component.css']
 })
-export class ManagerComponent implements OnInit {
+export class ManagerComponent extends ListComponent implements OnInit {
 
   users$: Observable<User[]>;
   constructor(
@@ -19,7 +20,7 @@ export class ManagerComponent implements OnInit {
     private router: Router,
     private activedRoute: ActivatedRoute,
     private notificationService: ToastNotificationService
-  ) { }
+  ) { super()}
 
   ngOnInit() {
     this.users$ = this.userService.getManagers()
