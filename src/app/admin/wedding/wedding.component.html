@@ -15,6 +15,7 @@
               <th>Trạng thái</th>
               <th>Số người</th>              
               <th>Tham gia</th>              
+              <th>Mã hoàn thành</th>              
               <th></th>
             </tr>
           </thead>
@@ -31,6 +32,7 @@
               </td>
               <td>{{w.number_of_students}}</td>              
               <td>{{w.students.length}}</td>              
+              <td>{{w.verify_code}}</td>              
               <td>
                 <button type="button" class="btn btn-sm btn-danger" (click)="onEdit(w)">
                   <i class="fa fa-edit"></i> Sửa</button>
@@ -38,7 +40,6 @@
                   <i class="fa fa-trash"></i> Xóa</button>
               </td>
             </tr>
-
           </tbody>
         </table>
         <ul class="pagination">
