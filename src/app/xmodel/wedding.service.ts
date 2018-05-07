@@ -57,6 +57,7 @@ export interface Wedding {
   phone: string
   htime: number
   restaurant_id: string
+  price: number
   created_by: string
   students: Student[]
   status: string

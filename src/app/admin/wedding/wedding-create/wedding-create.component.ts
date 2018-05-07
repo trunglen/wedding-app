@@ -27,6 +27,7 @@ export class WeddingCreateComponent implements OnInit {
       'number_of_students': new FormControl(14),
       'htime': new FormControl(this.defaultDate),
       'phone': new FormControl(),
+      'price': new FormControl(50000),
       'address': this.fb.group({
         'home_number': new FormControl(),
         'street': new FormControl(),
