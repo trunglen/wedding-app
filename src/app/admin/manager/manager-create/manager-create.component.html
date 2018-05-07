@@ -24,11 +24,11 @@
             </div>
           </div>
 
-          <div class="row">
+          <div class="row" *ngIf="userInfo.role==='super-admin'">
             <div class="col-sm-12">
               <div class="form-group">
                 <label for="name">Nhà hàng</label>
-                <select name="restaurant_id" ngModel class="form-control">
+                <select name="restaurant_id" ngModel class="form-control" >
                   <option [value]="r.id" *ngFor="let r of restaurant$|async">{{r.restaurant_name}}</option>
                 </select>
               </div>

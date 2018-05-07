@@ -14,6 +14,7 @@
                   <p-calendar formControlName="htime" styleClass="form-control" showTime="true" hourFormat="12" dateFormat="dd-mm-yy" [defaultDate]="defaultDate"></p-calendar>
                 </div>
               </div>
+              
               <div class="col-sm-4">
                   <div class="form-group">
                     <label for="name">Số người bưng lễ</label>
@@ -32,11 +33,20 @@
               <div class="col-sm-4">
                 <div class="form-group">
                   <label for="name">Số tiền</label>
-                  <input type="text" class="form-control" id="name" placeholder="Nhập số tiền cho 1 sinh viên" formControlName="price">
+                  <input type="number" class="form-control" id="name" placeholder="Nhập số tiền cho 1 sinh viên" formControlName="price">
                 </div>
               </div>
             </div>
-  
+            <div class="row" *ngIf="userInfo.role==='super-admin'">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="name">Nhà hàng</label>
+                  <select name="restaurant_id" formControlName="restaurant_id" class="form-control">
+                    <option [value]="r.id" *ngFor="let r of restaurant$|async">{{r.restaurant_name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
             <div class="row" formGroupName="address">
               <div class="form-group col-sm-4">
                 <label for="ccmonth">Số nhà</label>

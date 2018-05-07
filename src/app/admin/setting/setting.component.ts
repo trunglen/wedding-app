@@ -22,7 +22,7 @@ export class SettingComponent implements OnInit {
 
   onChangeInfo(f: NgForm) {
     const value = f.value
-    value.user_id = SessionFactory.getInfo().user_info.id
+    value.user_id = SessionFactory.getInfo().id
     console.log(value)
     this.userService.changePassword(value).subscribe(res => {
       this.notificationService.success('Cập nhật mật khẩu thành công')

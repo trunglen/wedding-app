@@ -16,6 +16,6 @@ export class SessionFactory {
         return sessionStorage.setItem(key, JSON.stringify(value));
     }
     static getInfo() {
-        return this.getItem('access_token')
+        return this.getItem('access_token').user_info
     }
 }
