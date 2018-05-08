@@ -19,13 +19,16 @@ const routes: Routes = [
     path: 'supervisor', loadChildren: './supervisor/supervisor.module#SupervisorModule', canLoad: [SuperAdminLoadService]
   },
   {
+    path: 'manager', loadChildren: './manager/manager.module#ManagerModule', canLoad: [SupervisorLoadService]
+  },
+  {
     path: 'student', loadChildren: './student/student.module#StudentModule', canLoad: [ManagerLoadService]
   },
   {
     path: 'wedding', loadChildren: './wedding/wedding.module#WeddingModule', canLoad: [ManagerLoadService]
   },
   {
-    path: 'manager', loadChildren: './manager/manager.module#ManagerModule', canLoad: [SupervisorLoadService]
+    path: 'report', loadChildren: './report/report.module#ReportModule', canLoad: [SupervisorLoadService]
   },
   {
     path: 'setting', loadChildren: './setting/setting.module#SettingModule',  canLoad: [ManagerLoadService]

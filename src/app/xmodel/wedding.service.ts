@@ -66,7 +66,7 @@ export interface Wedding {
   number_of_students: number
 }
 
-interface Address {
+export interface Address {
   home_number: string
   street: string
   district: string

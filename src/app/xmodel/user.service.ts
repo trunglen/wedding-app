@@ -91,4 +91,6 @@ interface Information {
   sex: boolean
   rating: number
   birth_year: number
+  balance: number
+  finish_wedding: number
 }

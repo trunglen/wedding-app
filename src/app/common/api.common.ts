@@ -25,17 +25,21 @@ export const apiURL = {
     //report
     getGeneralReport: getUrl('admin/report/general'),
     //manager api
-    getManagers:getUrl('admin/manager/list'),
-    createWedding:getUrl('manager/wedding/create'),
-    getWeddings:getUrl('manager/wedding/list'),
-    getWedding:getUrl('manager/wedding/detail'),
-    deleteWedding:getUrl('manager/wedding/delete'),
-    updateWedding:getUrl('manager/wedding/update'),
+    getManagers: getUrl('admin/manager/list'),
+    createWedding: getUrl('manager/wedding/create'),
+    getWeddings: getUrl('manager/wedding/list'),
+    getWedding: getUrl('manager/wedding/detail'),
+    deleteWedding: getUrl('manager/wedding/delete'),
+    updateWedding: getUrl('manager/wedding/update'),
     //supervisor
-    getSupervisor:getUrl('admin/supervisor/list'),
-    updateSupervisor:getUrl('admin/user/supervisor/update'),
-    
-    
+    getSupervisor: getUrl('admin/supervisor/list'),
+    updateSupervisor: getUrl('admin/user/supervisor/update'),
+    //report
+    getRestaurantReport: getUrl('admin/report/restaurant'),
+    getWeddingReport: getUrl('admin/report/wedding'),
+
+
+
 }
 function getUrl(endPoint: string) {
     return environment.baseURL + endPoint;

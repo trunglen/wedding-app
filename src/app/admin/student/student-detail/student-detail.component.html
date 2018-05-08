@@ -9,45 +9,45 @@
           <div class="form-group row">
             <label class="col-md-3 col-form-label">Chiều cao</label>
             <div class="col-md-9">
-              <span class="form-control">1.7 m</span>
+              {{user.information.height}} m
             </div>
           </div>
           <div class="form-group row">
             <label class="col-md-3 col-form-label" for="text-input">Cân nặng</label>
             <div class="col-md-9">
-                <input type="text" id="disabled-input" name="disabled-input" class="form-control" placeholder="Disabled" disabled="">
+              {{user.information.weight}} kg
             </div>
           </div>
           <div class="form-group row">
             <label class="col-md-3 col-form-label" for="email-input">Avatar</label>
-            <div class="col-md-9">
-                <input type="text" id="disabled-input" name="disabled-input" class="form-control" placeholder="Disabled" disabled="">
+            <div class="col-md-3">
+              <img [src]="staticURL+'student/avatar/'+user.id" alt="Chưa có ảnh" class="img-thumbnail">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-md-3 col-form-label" for="password-input">Ảnh toàn thân</label>
-            <div class="col-md-9">
-              <<input type="text" id="disabled-input" name="disabled-input" class="form-control" placeholder="Disabled" disabled="">
+            <div class="col-md-3">
+              <img [src]="staticURL+'student/portrait/'+user.id" alt="Chưa có ảnh" class="img-thumbnail">
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-md-3 col-form-label" for="disabled-input">Số đám đang tham gia</label>
+            <label class="col-md-3 col-form-label" for="disabled-input">Số đám đã tham gia thành công</label>
             <div class="col-md-9">
-              <input type="text" id="disabled-input" name="disabled-input" class="form-control" placeholder="Disabled" disabled="">
+              {{user.information.finish_wedding}}
             </div>
           </div>
           <div class="form-group row">
-              <label class="col-md-3 col-form-label" for="disabled-input">Số đám đã tham gia thành công</label>
-              <div class="col-md-9">
-                <input type="text" id="disabled-input" name="disabled-input" class="form-control" placeholder="Disabled" disabled="">
-              </div>
+            <label class="col-md-3 col-form-label" for="disabled-input">Số đám hủy</label>
+            <div class="col-md-9">
+              
             </div>
-            <div class="form-group row">
-                <label class="col-md-3 col-form-label" for="disabled-input">Số đám hủy</label>
-                <div class="col-md-9">
-                  <input type="text" id="disabled-input" name="disabled-input" class="form-control" placeholder="Disabled" disabled="">
-                </div>
-              </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="disabled-input">Số dư</label>
+            <div class="col-md-9">
+              {{user.information.balance}}
+            </div>
+          </div>
         </form>
       </div>
       <div class="card-footer">
@@ -57,6 +57,6 @@
           <i class="fa fa-ban"></i> Reset</button>
       </div>
     </div>
-    
+
   </div>
 </div>

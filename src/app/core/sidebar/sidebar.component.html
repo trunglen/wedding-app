@@ -16,12 +16,27 @@
           <i class="nav-icon icon-user"></i> Manager</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/admin/student']">
+          <i class="nav-icon icon-people"></i>Sinh viên</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" [routerLink]="['/admin/wedding']">
           <i class="nav-icon icon-heart"></i> Đám cưới</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/admin/student']">
-          <i class="nav-icon icon-people"></i>Sinh viên</a>
+      <li class="nav-item nav-dropdown">
+        <a class="nav-link nav-dropdown-toggle">
+          <i class="nav-icon icon-chart"></i> Thống kê</a>
+          <ul class="nav-dropdown-items">
+              <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/admin/report/system']"><i class="icon-screen-desktop"></i> Hệ thống</a>
+                  </li>
+              <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/admin/report/student']"><i class="icon-people"></i> Sinh viên</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/admin/report/wedding']"><i class="icon-heart"></i> Đám cưới</a>
+              </li>
+              </ul>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/admin/setting']">

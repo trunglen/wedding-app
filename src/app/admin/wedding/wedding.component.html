@@ -47,10 +47,9 @@
         </ul>
       </div>
       <div class="card-footer">
-        <button type="button" class="btn btn-sm btn-primary" [routerLink]="['create']">
-          <i class="fa fa-dot-circle-o"></i> Thêm mới</button>
+        <button type="button" class="btn btn-sm btn-primary" [routerLink]="['create']" *ngIf="userInfo.role==='manager' || userInfo.role==='super-admin'">
+          <i class="fa fa-dot-circle-o" ></i> Thêm mới</button>
       </div>
     </div>
   </div>
-
 </div>

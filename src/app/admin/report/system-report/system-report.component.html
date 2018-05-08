@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Thống kê tiền trả sinh viên
+      </div>
+      <div class="card-body">
+        <table class="table table-responsive-sm">
+          <thead>
+            <tr>
+              <th>Tên nhà hàng</th>
+              <th>Số đám</th>
+              <th>Tổng số tiền</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let u of rreports">
+              <td>{{u.restaurant_name}}</td>
+              <td>{{u.wedding_count}}</td>
+              <td>{{u.total}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card-footer">
+        <div class="row">
+          <div class="form-group col-sm-2">
+            <label for="ccmonth">Phần trăm hoa hồng</label>
+            <input type="text" class="form-control" id="ccnumber" placeholder="Nhập số nhà" name="percent" [(ngModel)]="percent">
+          </div>
+          <div class="form-group col-sm-2">
+            <label for="ccmonth">Số tiền cần thanh toán</label>
+            <input type="text" class="form-control" id="ccnumber" disabled [value]="sumR*percent">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-4">
+            <button type="button" class="btn btn-sm btn-primary" (click)="onNew()">
+              <i class="fa fa-dot-circle-o"></i> Thanh toán</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

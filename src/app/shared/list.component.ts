@@ -1,4 +1,7 @@
+import { SessionFactory } from "../../x/storage.utils";
+
 export class ListComponent {
-    p: number = 1;
+    userInfo = SessionFactory.getInfo()
+    p = 1
     pageConfig = { itemsPerPage: 2, currentPage: this.p }
 }

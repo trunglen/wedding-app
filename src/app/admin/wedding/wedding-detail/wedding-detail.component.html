@@ -6,13 +6,11 @@
         <div class="h5 text-primary mb-0 mt-2">{{students[i]?students[i].name:'Chưa nhận'}}</div>
         <div class="text-muted text-uppercase font-weight-bold font-xs">{{students[i]?students[i].phone:''}}</div>
       </div>
-      <div class="card-footer px-3 py-2">
-          <a class="font-weight-bold font-xs btn-block text-muted" href="#"  [class.disabled]="!students[i]">Chi tiết
+      <div class="card-footer px-3 py-2" *ngIf="students[i]">
+          <a class="font-weight-bold font-xs btn-block text-muted" href="#"  [class.disabled]="!students[i]" [routerLink]="['/admin/student/detail/'+students[i].id]">Chi tiết
             <i class="fa fa-angle-right float-right font-lg"></i>
           </a>
         </div>
     </div>
   </div>
-
-
 </div>
