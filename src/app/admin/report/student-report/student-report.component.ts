@@ -9,7 +9,7 @@ import { User, UserService } from '../../../xmodel/user.service';
 })
 export class StudentReportComponent implements OnInit {
   students$ : Observable<User[]>
-  
+  p = 1
   constructor(
     private userService: UserService
   ) { }
