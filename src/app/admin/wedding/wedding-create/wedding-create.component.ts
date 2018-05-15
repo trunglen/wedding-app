@@ -41,7 +41,10 @@ export class WeddingCreateComponent implements OnInit {
         'home_number': new FormControl(),
         'street': new FormControl(),
         'district': new FormControl()
-      })
+      }),
+      'clothes': new FormControl('Nam áo trắng quần âu, nữ áo the'),
+      'note': new FormControl(''),
+      
     })
   }
 

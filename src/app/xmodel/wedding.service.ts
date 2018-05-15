@@ -38,6 +38,10 @@ export class WeddingService implements Resolve<boolean>{
     return this.httpService.Get(apiURL.getWedding, { id: id });
   }
 
+  getWeddings() {
+    return this.httpService.Get(apiURL.getWeddings).do(data => this.model.set(data === null ? [] : data))
+  }
+
   deleteWedding(id: string) {
     return this.httpService.Get(apiURL.deleteWedding, { id: id }).do(res => {
       var weddings = this.model.get();
@@ -58,6 +62,8 @@ export interface Wedding {
   htime: number
   restaurant_id: string
   price: number
+  clothes: string
+  note: string
   created_by: string
   students: Student[]
   status: string

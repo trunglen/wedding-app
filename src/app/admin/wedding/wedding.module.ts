@@ -9,6 +9,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { CalendarModule } from 'primeng/calendar';
 import { WeddingCreateComponent } from './wedding-create/wedding-create.component';
 import { WeddingUpdateComponent } from './wedding-update/wedding-update.component';
+import { WeddingFilterPipe } from './wedding-filter.pipe';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { WeddingUpdateComponent } from './wedding-update/wedding-update.componen
     WeddingComponent,
     WeddingDetailComponent,
     WeddingCreateComponent,
-    WeddingUpdateComponent
+    WeddingUpdateComponent,
+    WeddingFilterPipe
   ],
   providers: [
   ]

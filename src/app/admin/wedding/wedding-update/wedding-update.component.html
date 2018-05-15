@@ -48,6 +48,20 @@
             </div>
           </div>
           <!--/.row-->
+           <!--/.row-->
+           <div class="row">
+            <div class="form-group col-sm-12">
+              <label for="ccmonth">Trang phục</label>
+              <input type="text" class="form-control" id="ccnumber" placeholder="Nhập trang phục" name="clothes" [(ngModel)]="wedding.clothes">
+            </div>
+          </div>
+           <!--/.row-->
+           <div class="row">
+            <div class="form-group col-sm-12">
+              <label for="ccmonth">Ghi chú</label>
+              <input type="text" class="form-control" id="ccnumber" placeholder="Nhập ghi chú" name="note" [(ngModel)]="wedding.note">
+            </div>
+          </div>
         </div>
         <div class="card-footer">
           <button type="submit" class="btn btn-sm btn-primary" (click)="onSave()">

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { TimeCounterComponent } from './time-counter/time-counter.component';
 
 @NgModule({
   imports: [
@@ -13,8 +14,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
   exports: [
     FormsModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    TimeCounterComponent
   ],
-  declarations: []
+  declarations: [TimeCounterComponent]
 })
 export class SharedModule { }

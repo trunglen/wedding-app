@@ -9,11 +9,11 @@
       <li class="nav-title">Nhà hàng</li>
       <li class="nav-item" *ngIf="role==='super-admin'">
         <a class="nav-link" [routerLink]="['/admin/supervisor']">
-          <i class="nav-icon icon-book-open"></i> Nhà hàng</a>
+          <i class="nav-icon icon-book-open"></i> Cửa hàng</a>
       </li>
       <li class="nav-item" *ngIf="role==='super-admin' || role==='supervisor'">
         <a class="nav-link" [routerLink]="['/admin/manager']" >
-          <i class="nav-icon icon-user"></i> Manager</a>
+          <i class="nav-icon icon-user"></i> Quản lí</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/admin/student']">
@@ -43,19 +43,9 @@
           <i class="nav-icon icon-bag"></i>Đổi thông tin</a>
       </li>
       <li class="nav-item" (click)="onLogout()">
-        <a class="nav-link">
+        <a style="cursor: pointer;" class="nav-link">
           <i class="nav-icon icon-logout"></i>Đăng xuất</a>
       </li>
-      <!-- <li class="nav-item mt-auto">
-        <a class="nav-link nav-link-success" href="https://coreui.io" target="_top">
-          <i class="nav-icon icon-cloud-download"></i> Download CoreUI</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link nav-link-danger" href="https://coreui.io/pro/" target="_top">
-          <i class="nav-icon icon-layers"></i> Try CoreUI
-          <strong>PRO</strong>
-        </a>
-      </li> -->
     </ul>
   </nav>
   <button class="sidebar-minimizer brand-minimizer" type="button"></button>

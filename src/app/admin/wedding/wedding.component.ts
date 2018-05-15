@@ -9,15 +9,20 @@ import { ListComponent } from '../../shared/list.component';
   templateUrl: './wedding.component.html',
   styleUrls: ['./wedding.component.css']
 })
-export class WeddingComponent extends ListComponent  implements OnInit {
+export class WeddingComponent extends ListComponent implements OnInit {
+  weddings: Wedding[] = []
+  filter = ''
   constructor(
     private router: Router,
     private activedRoute: ActivatedRoute,
     public weddingService: WeddingService,
     private notificationService: ToastNotificationService
-  ) { super()}
+  ) { super() }
 
   ngOnInit() {
+    this.weddingService.getWeddings().subscribe(res => {
+      this.weddings = res
+    })
   }
 
   onDetail(w: Wedding) {
@@ -35,4 +40,5 @@ export class WeddingComponent extends ListComponent  implements OnInit {
       })
     })
   }
+
 }
