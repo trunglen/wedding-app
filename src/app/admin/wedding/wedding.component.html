@@ -42,7 +42,7 @@
               <td>{{w.number_of_students}}</td>              
               <td>{{w.students.length}}</td>              
               <td>{{w.verify_code}}</td>         
-              <td> <app-time-counter [pastTime]="w.htime"></app-time-counter></td> 
+              <td> <app-time-counter [pastTime]="w.htime" [wedding]="w"></app-time-counter></td> 
               <td>
                 <button type="button" class="btn btn-sm btn-danger" (click)="onEdit(w)">
                   <i class="fa fa-edit"></i> Sửa</button>

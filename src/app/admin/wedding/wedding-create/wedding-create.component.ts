@@ -27,6 +27,7 @@ export class WeddingCreateComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log(this.userInfo.id)
     this.restaurant$ = this.userService.getUsersByRole('supervisor')
     this.defaultDate.setHours(9)
     this.defaultDate.setMinutes(0)

@@ -16,6 +16,21 @@
   <link href="assets/vendors/css/simple-line-icons.css" rel="stylesheet">
   <!-- Main styles for this application-->
   <link href="assets/css/style.css" rel="stylesheet">
+  <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          if (Notification.permission !== "granted")
+              Notification.requestPermission().then(res=>{
+                  console.log(res)
+              });
+      });
+
+      function notifyMe() {
+          setTimeout(() => {
+          var notification = new Notification("Hi there!");
+                              
+          }, 10000);
+      }
+  </script>
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">

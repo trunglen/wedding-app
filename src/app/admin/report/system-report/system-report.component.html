@@ -5,22 +5,94 @@
         <i class="fa fa-align-justify"></i> Thống kê tiền trả sinh viên
       </div>
       <div class="card-body">
-        <table class="table table-responsive-sm">
-          <thead>
-            <tr>
-              <th>Tên nhà hàng</th>
-              <th>Số đám</th>
-              <th>Tổng số tiền</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let u of rreports">
-              <td>{{u.restaurant_name}}</td>
-              <td>{{u.wedding_count}}</td>
-              <td>{{u.total}}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="row align-items-center">
+          <div class="col-12 col-xl mb-3 mb-xl-0">
+            Normal
+          </div>
+          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+            <button type="button" class="btn btn-block btn-primary">Primary</button>
+          </div>
+          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+            <button type="button" class="btn btn-block btn-secondary">Secondary</button>
+          </div>
+          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+            <button type="button" class="btn btn-block btn-success">Success</button>
+          </div>
+          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+            <button type="button" class="btn btn-block btn-warning">Warning</button>
+          </div>
+          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+            <button type="button" class="btn btn-block btn-danger">Danger</button>
+          </div>
+          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+            <button type="button" class="btn btn-block btn-info">Info</button>
+          </div>
+          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+            <button type="button" class="btn btn-block btn-light">Light</button>
+          </div>
+          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+            <button type="button" class="btn btn-block btn-dark">Dark</button>
+          </div>
+          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+            <button type="button" class="btn btn-block btn-link">Link</button>
+          </div>
+        </div>
+        <div class="row" style="margin-top: 1.25rem">
+          <div class="col-md-3 col-form-label">
+            <b>Tổng số đám</b>
+          </div>
+          <div class="col-md-9">
+            3
+          </div>
+          <div class="col-md-3 col-form-label">
+            <b>Số đám hoàn thành</b>
+          </div>
+          <div class="col-md-9">
+            dsds
+          </div>
+          <div class="col-md-3 col-form-label">
+            <b>Số đám còn thiếu</b>
+          </div>
+          <div class="col-md-9">
+            dsds
+          </div>
+          <div class="col-md-3 col-form-label">
+            <b>Tổng số đám</b>
+          </div>
+          <div class="col-md-9">
+            dsds
+          </div>
+          <div class="col-md-3 col-form-label">
+            <b>Tổng số tiền phải trả</b>
+          </div>
+          <div class="col-md-9">
+            dsds
+          </div>
+          <div class="col-md-3 col-form-label">
+            <b>Tổng số tiền dịch vụ</b>
+          </div>
+          <div class="col-md-9">
+            dsds
+          </div>
+        </div>
+        <div class="row" style="margin-top: 1.25rem">
+          <table class="table table-responsive-sm">
+            <thead>
+              <tr>
+                <th>Tên nhà hàng</th>
+                <th>Số đám</th>
+                <th>Tổng số tiền</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let u of rreports">
+                <td>{{u.restaurant_name}}</td>
+                <td>{{u.wedding_count}}</td>
+                <td>{{u.total}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div class="card-footer">
