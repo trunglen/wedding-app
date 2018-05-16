@@ -23,7 +23,7 @@ export const apiURL = {
     //auth api
     login: getUrl('auth/login'),
     //report
-    getGeneralReport: getUrl('admin/report/general'),
+    // getGeneralReport: getUrl('admin/report/general'),
     //manager api
     getManagers: getUrl('admin/manager/list'),
     createWedding: getUrl('manager/wedding/create'),
@@ -37,6 +37,7 @@ export const apiURL = {
     //report
     getRestaurantReport: getUrl('admin/report/restaurant'),
     getWeddingReport: getUrl('admin/report/wedding'),
+    getGeneralReport: getUrl('supervisor/report/general'),
 
 
 

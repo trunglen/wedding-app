@@ -2,80 +2,56 @@
   <div class="col-lg-12">
     <div class="card">
       <div class="card-header">
-        <i class="fa fa-align-justify"></i> Thống kê tiền trả sinh viên
+        <i class="fa fa-align-justify"></i>Tổng quan
       </div>
       <div class="card-body">
         <div class="row align-items-center">
-          <div class="col-12 col-xl mb-3 mb-xl-0">
-            Normal
-          </div>
           <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
-            <button type="button" class="btn btn-block btn-primary">Primary</button>
-          </div>
-          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
-            <button type="button" class="btn btn-block btn-secondary">Secondary</button>
-          </div>
-          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
-            <button type="button" class="btn btn-block btn-success">Success</button>
-          </div>
-          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
-            <button type="button" class="btn btn-block btn-warning">Warning</button>
-          </div>
-          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
-            <button type="button" class="btn btn-block btn-danger">Danger</button>
-          </div>
-          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
-            <button type="button" class="btn btn-block btn-info">Info</button>
-          </div>
-          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
-            <button type="button" class="btn btn-block btn-light">Light</button>
-          </div>
-          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
-            <button type="button" class="btn btn-block btn-dark">Dark</button>
-          </div>
-          <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
-            <button type="button" class="btn btn-block btn-link">Link</button>
+            <button type="button" class="btn btn-block btn-primary">Thanh toán</button>
           </div>
         </div>
         <div class="row" style="margin-top: 1.25rem">
-          <div class="col-md-3 col-form-label">
-            <b>Tổng số đám</b>
+          <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6">
+                    <b>Tổng số đám</b>
+                  </div>
+                  <div class="col-md-6">
+                    {{gReport$.all}}
+                  </div>
+                  <div class="col-md-6">
+                    <b>Số đám hoàn thành</b>
+                  </div>
+                  <div class="col-md-6">
+                    {{gReport$.finish}}
+                  </div>
+                  <div class="col-md-6">
+                      <b>Số đám thiếu người</b>
+                    </div>
+                    <div class="col-md-6">
+                      {{gReport$.missing}}
+                    </div>
+            </div>
+              
           </div>
-          <div class="col-md-9">
-            3
-          </div>
-          <div class="col-md-3 col-form-label">
-            <b>Số đám hoàn thành</b>
-          </div>
-          <div class="col-md-9">
-            dsds
-          </div>
-          <div class="col-md-3 col-form-label">
-            <b>Số đám còn thiếu</b>
-          </div>
-          <div class="col-md-9">
-            dsds
-          </div>
-          <div class="col-md-3 col-form-label">
-            <b>Tổng số đám</b>
-          </div>
-          <div class="col-md-9">
-            dsds
-          </div>
-          <div class="col-md-3 col-form-label">
-            <b>Tổng số tiền phải trả</b>
-          </div>
-          <div class="col-md-9">
-            dsds
-          </div>
-          <div class="col-md-3 col-form-label">
-            <b>Tổng số tiền dịch vụ</b>
-          </div>
-          <div class="col-md-9">
-            dsds
+          <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6">
+                    <b>Tổng số tiền phải trả</b>
+                  </div>
+                  <div class="col-md-6">
+                    {{gReport$.cashback}}
+                  </div>
+                  <div class="col-md-6">
+                    <b>Tổng số tiền dịch vụ</b>
+                  </div>
+                  <div class="col-md-6">
+                    {{gReport$.cashback}}
+                  </div>
+            </div>
           </div>
         </div>
-        <div class="row" style="margin-top: 1.25rem">
+        <div class="row" style="margin-top: 1.25rem" *ngIf="userInfo.role==='super-admin'">
           <table class="table table-responsive-sm">
             <thead>
               <tr>
@@ -92,27 +68,69 @@
               </tr>
             </tbody>
           </table>
+          <div class="row">
+              <div class="form-group col-sm-2">
+                <label for="ccmonth">Phần trăm hoa hồng</label>
+                <input type="text" class="form-control" id="ccnumber" placeholder="Nhập số nhà" name="percent" [(ngModel)]="percent">
+              </div>
+              <div class="form-group col-sm-2">
+                <label for="ccmonth">Số tiền cần thanh toán</label>
+                <input type="text" class="form-control" id="ccnumber" disabled [value]="sumR*percent">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-sm-4">
+                <button type="button" class="btn btn-sm btn-primary">
+                  <i class="fa fa-dot-circle-o"></i> Thanh toán</button>
+              </div>
+            </div>
         </div>
       </div>
 
       <div class="card-footer">
-        <div class="row">
-          <div class="form-group col-sm-2">
-            <label for="ccmonth">Phần trăm hoa hồng</label>
-            <input type="text" class="form-control" id="ccnumber" placeholder="Nhập số nhà" name="percent" [(ngModel)]="percent">
-          </div>
-          <div class="form-group col-sm-2">
-            <label for="ccmonth">Số tiền cần thanh toán</label>
-            <input type="text" class="form-control" id="ccnumber" disabled [value]="sumR*percent">
-          </div>
-        </div>
-        <div class="row">
-          <div class="form-group col-sm-4">
-            <button type="button" class="btn btn-sm btn-primary">
-              <i class="fa fa-dot-circle-o"></i> Thanh toán</button>
-          </div>
-        </div>
+        
       </div>
     </div>
   </div>
 </div>
+
+<!-- //for student -->
+<div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> Thống kê sinh viên
+        </div>
+        <div class="card-body">
+          <table class="table table-responsive-sm">
+            <thead>
+              <tr>
+                <th>Tên sv</th>
+                <th>Số điện thoại</th>
+                <th>Số tiền</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let s of students$|async | paginate: { itemsPerPage: 10, currentPage: p }">
+                <td>{{s.name}}</td>
+                <td>{{s.phone}}</td>
+                <td>{{s.information.balance}}</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-primary"  [routerLink]="['create']">
+                        <i class="fa fa-dot-circle-o"></i> Thanh toán</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <ul class="pagination">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </ul>
+        </div>
+  
+        <div class="card-footer">
+        </div>
+      </div>
+    </div>
+  
+  </div>

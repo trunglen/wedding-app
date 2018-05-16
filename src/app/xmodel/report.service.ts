@@ -16,6 +16,10 @@ export class ReportService {
     getWeddingReport() {
         return this.httpService.Get(apiURL.getWeddingReport)
     }
+
+    getGeneralReport() {
+        return this.httpService.Get(apiURL.getGeneralReport)
+    }
 }
 
 export interface RestaurantReport {
@@ -30,4 +34,11 @@ export interface WeddingReport {
     wedding_id: string
     total: number
     paid_student: boolean
+}
+
+export interface GeneralReport {
+    all: number;
+    finish: number;
+    missing: number;
+    cashback: number;
 }
