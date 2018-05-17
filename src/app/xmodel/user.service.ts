@@ -70,6 +70,10 @@ export class UserService implements Resolve<boolean>{
   changePassword(body) {
     return this.httpService.Post(apiURL.changePassword, body)
   }
+
+  getWarningMissingWedding(restaurantID: string) {
+    return this.httpService.Get(apiURL.getWarningMissingWedding, { restaurant_id: restaurantID })
+  }
 }
 
 export interface User {

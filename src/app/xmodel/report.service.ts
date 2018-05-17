@@ -20,6 +20,8 @@ export class ReportService {
     getGeneralReport() {
         return this.httpService.Get(apiURL.getGeneralReport)
     }
+
+   
 }
 
 export interface RestaurantReport {

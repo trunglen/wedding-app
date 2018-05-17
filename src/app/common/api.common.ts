@@ -25,12 +25,15 @@ export const apiURL = {
     //report
     // getGeneralReport: getUrl('admin/report/general'),
     //manager api
+    getWarningMissingWedding: getUrl('admin/manager/wedding/warning_missing/list'),
+    getWarningMoveWedding: getUrl('admin/manager/wedding/warning_move/list'),
     getManagers: getUrl('admin/manager/list'),
     createWedding: getUrl('manager/wedding/create'),
     getWeddings: getUrl('manager/wedding/list'),
     getWedding: getUrl('manager/wedding/detail'),
     deleteWedding: getUrl('manager/wedding/delete'),
     updateWedding: getUrl('manager/wedding/update'),
+
     //supervisor
     getSupervisor: getUrl('admin/supervisor/list'),
     updateSupervisor: getUrl('admin/user/supervisor/update'),

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { WeddingService, Wedding } from '../../../xmodel/wedding.service';
+import { WeddingService, Wedding, Student } from '../../../xmodel/wedding.service';
 
 @Component({
   selector: 'app-wedding-detail',
@@ -26,4 +26,13 @@ export class WeddingDetailComponent implements OnInit {
     })
   }
 
+  getStatus(s: Student) {
+    if (s.status==='join') {
+      return 'Chưa di chuyển'
+    }
+    if (s.status==='move') {
+      return 'Đã di chuyển'
+    }
+    return 'Hoàn thành'
+  }
 }

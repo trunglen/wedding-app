@@ -56,7 +56,7 @@ export class WeddingService implements Resolve<boolean>{
 }
 
 
-export interface Wedding {
+export class Wedding {
   id: string
   phone: string
   htime: number
@@ -70,6 +70,15 @@ export interface Wedding {
   verify_code: string
   address: Address
   number_of_students: number
+  /**
+   *
+   */
+  constructor(wedding: Wedding) {
+    this.address = wedding.address
+  }
+  getAddress() {
+    return `Số ${this.address.home_number} đường ${this.address.street} quận ${this.address.district}`
+  }
 }
 
 export interface Address {
@@ -78,7 +87,7 @@ export interface Address {
   district: string
 }
 
-interface Student {
+export interface Student {
   id: string
   phone: string
   sex: string
