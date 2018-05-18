@@ -30,7 +30,7 @@
           </thead>
           <tbody>
             <tr *ngFor="let w of weddings|weddingFilter:filter| paginate: { itemsPerPage: 10, currentPage: p }">
-              <td>Số nhà {{w.address.home_number}} đường {{w.address.street}} quận {{w.address.district}}</td>
+              <td><a [routerLink]="">Số nhà {{w.address.home_number}} đường {{w.address.street}} quận {{w.address.district}}</a> </td>
               <td>{{w.htime|date:'dd-MM-yyyy hh:mm'}}</td>
               <td>
                   <span class="badge badge-pill badge-primary" *ngIf="w.students.length===w.number_of_students">Đủ người</span>
