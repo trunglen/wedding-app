@@ -35,7 +35,6 @@
               <td>
                   <span class="badge badge-pill badge-primary" *ngIf="w.students.length===w.number_of_students">Đủ người</span>
                   <span class="badge badge-pill badge-danger" *ngIf="w.students.length<w.number_of_students">Thiếu người</span>
-                  <span class="badge badge-pill badge-success" *ngIf="w.status==='finished'">Đã hoàn thành</span>
                   <button type="button" class="btn btn-sm btn-primary" (click)="onDetail(w)">
                       <i class="fa fa-eye"></i>Xem</button>
               </td>

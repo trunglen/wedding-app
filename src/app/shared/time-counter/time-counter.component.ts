@@ -16,12 +16,16 @@ export class TimeCounterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    if (this.wedding.htime - new Date().getTime() < warningLimit) {
-      this.highlight = 'highlight'
+    if (this.wedding.status === 'finish') {
+      this.time = 'Đã hoàn thành'
+    } else {
+      if (this.wedding.htime - new Date().getTime() < warningLimit) {
+        this.highlight = 'highlight'
+      }
+      setInterval(() => {
+        this.time = this.msToTime(this.wedding.htime - new Date().getTime())
+      }, 1000)
     }
-    setInterval(() => {
-      this.time = this.msToTime(this.wedding.htime - new Date().getTime())
-    }, 1000)
   }
 
   msToTime(duration: number) {

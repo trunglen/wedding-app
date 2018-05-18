@@ -51,6 +51,22 @@
             </div>
           </div>
         </div>
+        <div class="row"  style="margin-top: 1.25rem">
+          <div class="form-group col-sm-2">
+            <label for="ccmonth">Phần trăm hoa hồng</label>
+            <input type="text" class="form-control" id="ccnumber" placeholder="Nhập số nhà" name="percent" [(ngModel)]="percent">
+          </div>
+          <div class="form-group col-sm-2">
+            <label for="ccmonth">Số tiền cần thanh toán</label>
+            <input type="text" class="form-control" id="ccnumber" disabled [value]="sumR*percent">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-4">
+            <button type="button" class="btn btn-sm btn-primary">
+              <i class="fa fa-dot-circle-o"></i> Thanh toán</button>
+          </div>
+        </div>
         <div class="row" style="margin-top: 1.25rem" *ngIf="userInfo.role==='super-admin'">
           <table class="table table-responsive-sm">
             <thead>
@@ -68,22 +84,7 @@
               </tr>
             </tbody>
           </table>
-          <div class="row">
-              <div class="form-group col-sm-2">
-                <label for="ccmonth">Phần trăm hoa hồng</label>
-                <input type="text" class="form-control" id="ccnumber" placeholder="Nhập số nhà" name="percent" [(ngModel)]="percent">
-              </div>
-              <div class="form-group col-sm-2">
-                <label for="ccmonth">Số tiền cần thanh toán</label>
-                <input type="text" class="form-control" id="ccnumber" disabled [value]="sumR*percent">
-              </div>
-            </div>
-            <div class="row">
-              <div class="form-group col-sm-4">
-                <button type="button" class="btn btn-sm btn-primary">
-                  <i class="fa fa-dot-circle-o"></i> Thanh toán</button>
-              </div>
-            </div>
+          
         </div>
       </div>
 
