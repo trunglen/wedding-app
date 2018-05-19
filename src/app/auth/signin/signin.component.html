@@ -5,8 +5,8 @@
         <form #f="ngForm" (ngSubmit)="onSignin(f)" method="post">
           <div class="card-group">
             <div class="card p-4">
-              <div class="card-body">
-                <h1>Đăng nhập</h1>
+              <div class="card-body text-center">
+                <img src="assets/img/BE0512.png" alt="" style="max-width: 30%;height: auto;">
                 <p class="text-muted">Đăng nhập vào hệ thống</p>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
@@ -25,21 +25,28 @@
                   <input type="password" class="form-control" placeholder="Mật khẩu" ngModel name="password">
                 </div>
                 <div class="row">
-                  <div class="col-6">
-                    <button type="submit" class="btn btn-primary px-4" >Đăng nhập</button>
+                  <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-primary px-4">Đăng nhập</button>
                   </div>
-                  <div class="col-6 text-right">
-                    <!-- <button type="button" class="btn btn-link px-0">Forgot password?</button> -->
-                  </div>
+                  
                 </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 text-center">&copy; 2018 <a href="SvTre.com">SvTre.com</a> LLC</div>
               </div>
             </div>
             <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
-              <div class="card-body text-center">
-                <div>
+              <div class="card-body">
+                <div class="text-center">
                   <h2>Bê tráp sinh viên</h2>
-                  <p>Quản lí hiệu quả</p>
+                  <p>Quản lí đơn giản mà hiệu quả</p>
                 </div>
+                <h6>- Tạo đám nhanh mà đơn giản</h6>
+                <h6>- Tìm sinh viên đi bê dễ dàng</h6>
+                <h6>- Theo dõi được quá trình bê tráp của sinh viên</h6>
+                <h6>- Cảnh báo sớm sự cố có thể xảy ra</h6>
+                <h6>- Dễ dàng xem báo cáo và thanh toán cuối tháng</h6>
+                <h6>- Không cần sổ sách ghi chép tránh nhầm lẫn thất lạc</h6>
               </div>
             </div>
           </div>

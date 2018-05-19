@@ -5,6 +5,7 @@ import { WeddingComponent } from './wedding.component';
 import { WeddingService } from '../../xmodel/wedding.service';
 import { WeddingCreateComponent } from './wedding-create/wedding-create.component';
 import { WeddingUpdateComponent } from './wedding-update/wedding-update.component';
+import { WeddingHistoryComponent } from './wedding-history/wedding-history.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,9 @@ const routes: Routes = [
   },
   {
     path: 'create', component: WeddingCreateComponent,
+  },
+  {
+    path: 'history', component: WeddingHistoryComponent,
   },
   {
     path: 'edit/:id', component: WeddingUpdateComponent,

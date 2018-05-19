@@ -30,13 +30,11 @@
           </thead>
           <tbody>
             <tr *ngFor="let w of weddings|weddingFilter:filter| paginate: { itemsPerPage: 10, currentPage: p }">
-              <td><a [routerLink]="">Số nhà {{w.address.home_number}} đường {{w.address.street}} quận {{w.address.district}}</a> </td>
+              <td><a [routerLink]="['/admin/wedding/detail/'+w.id]">Số nhà {{w.address.home_number}} đường {{w.address.street}} quận {{w.address.district}}</a> </td>
               <td>{{w.htime|date:'dd-MM-yyyy hh:mm'}}</td>
               <td>
                   <span class="badge badge-pill badge-primary" *ngIf="w.students.length===w.number_of_students">Đủ người</span>
                   <span class="badge badge-pill badge-danger" *ngIf="w.students.length<w.number_of_students">Thiếu người</span>
-                  <button type="button" class="btn btn-sm btn-primary" (click)="onDetail(w)">
-                      <i class="fa fa-eye"></i>Xem</button>
               </td>
               <td>{{w.number_of_students}}</td>              
               <td>{{w.students.length}}</td>              

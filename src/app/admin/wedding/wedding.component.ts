@@ -20,7 +20,7 @@ export class WeddingComponent extends ListComponent implements OnInit {
   ) { super() }
 
   ngOnInit() {
-    this.weddingService.getWeddings().subscribe(res => {
+    this.weddingService.getWeddings('missing').subscribe(res => {
       this.weddings = res
     })
   }

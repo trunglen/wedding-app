@@ -10,6 +10,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { WeddingCreateComponent } from './wedding-create/wedding-create.component';
 import { WeddingUpdateComponent } from './wedding-update/wedding-update.component';
 import { WeddingFilterPipe } from './wedding-filter.pipe';
+import { WeddingHistoryComponent } from './wedding-history/wedding-history.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { WeddingFilterPipe } from './wedding-filter.pipe';
     WeddingDetailComponent,
     WeddingCreateComponent,
     WeddingUpdateComponent,
-    WeddingFilterPipe
+    WeddingFilterPipe,
+    WeddingHistoryComponent
   ],
   providers: [
   ]

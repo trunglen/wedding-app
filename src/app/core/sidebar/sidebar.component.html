@@ -24,10 +24,14 @@
           <i class="nav-icon icon-heart"></i> Đám cưới</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/admin/wedding/history']">
+          <i class="nav-icon icon-pencil"></i> Lịch sử đám</a>
+      </li>
+      <li class="nav-item">
           <a class="nav-link" [routerLink]="['/admin/report/system']" *ngIf="role==='super-admin' || role==='supervisor'">
             <i class="nav-icon icon-chart"></i> Báo cáo</a>
         </li>
-      <li class="nav-item nav-dropdown">
+      <!-- <li class="nav-item nav-dropdown">
         <a class="nav-link nav-dropdown-toggle">
           <i class="nav-icon icon-chart"></i>Thống kê</a>
           <ul class="nav-dropdown-items">
@@ -41,7 +45,7 @@
               <a class="nav-link" [routerLink]="['/admin/report/wedding']"><i class="icon-heart"></i> Đám cưới</a>
               </li>
               </ul>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/admin/setting']">
           <i class="nav-icon icon-bag"></i>Đổi mật khẩu</a>
